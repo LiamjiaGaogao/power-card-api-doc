@@ -1,0 +1,20 @@
+---
+title: '接入前准备'
+---
+### 1.申请 merchantId 和密钥
+Powercard 与商户间的服务通信使用 AES + RSA 的方式对请求和响应的内容进行加解密，因此在正式接入前，需要先提前申请对应的 merchantId 和密钥。
+
+
+> stg 环境: https://powercard.innotech-stage.com/powercard-service/<br />rel 环境: https://powercard.innotech-rel.com/powercard-service/ <br />prod 环境：https://pw.ulikewallet.com/powercard-service/
+
+
+### 2.选择卡产品
+Powercard 支持数字卡、虚拟卡、实体卡等不同的卡产品，不同的卡产品费率和使用场景不同，可以根据自己的业务需求选择一种或多种卡产品进行接入。
+
+#### 2.1 卡产品
+
+| 卡商名称         | 对应channel    | 支持卡类型 | 状态 |
+| ------------ | ----------| ---- |---- |
+| AX | merchantCards   | 虚拟卡 |已上线 |
+| FAZZ | straitsX   | 虚拟卡/实体卡 |内测中 |
+| BEU | beu   | 实体卡 |开发完成 |

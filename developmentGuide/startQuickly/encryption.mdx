@@ -1,0 +1,91 @@
+---
+title: '通信加密'
+---
+
+> 请求powercard时，需要在http header中添加 merchantid=**提前申请的merchantId**，例如 merchantid=uu
+
+### 一、生成 RSA 密钥对
+> Powercard 与商户间的服务通信使用 AES(AES/ECB/PKCS5Padding) + RSA(RSA/ECB/PKCS1Padding) 的方式对请求和响应的内容进行加解密，因此在正式接入前，商户需要先提前申请对应的 merchantId 和密钥。
+
+1. Powercard 生成一对 RSA 密钥对A，格式为 PKCS8，长度为 2048 位，其中 A-publicKey 给到商户，A-privateKey 由 Powercard 自行保管
+
+```shell
+#示例，商户提前申请密钥，Powercard 给到商户 A-publicKey：
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqFN91Y/gWsgFSUIT11Ym2ySyGl1fDvyHvUm1GOVYb9IaHl8bIN3no4vKfhWI9EyixKlB+ixzL7lZU8uQLsSl/VZBitmO2wWulgsvlUZWZFKRjUdYHNEBoNXYfmtGUjIQGnnJkHLLCPhxSLjbusk3eQw/idS/457XDFLOa6f0H38kow8WICLLb4RmuH9qbywg+Vh0IAzkk65u2H4RzZ3wYCtuPDz88s6sGU6FQfr/e9En3MqplO2JdEmaoKjKfasonFnDi9iyANrIVCb4sqo7GdDdoFARoutjhOiZAdYb9wcFAVegeomdBXQuE6HXiOM97jab+tv6koV2QFgyNhJDcwIDAQAB
+```
+
+```shell
+#示例，Powercard 自行保留的 A-privateKey：
+MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCoU33Vj+BayAVJQhPXVibbJLIaXV8O/Ie9SbUY5Vhv0hoeXxsg3eeji8p+FYj0TKLEqUH6LHMvuVlTy5AuxKX9VkGK2Y7bBa6WCy+VRlZkUpGNR1gc0QGg1dh+a0ZSMhAaecmQcssI+HFIuNu6yTd5DD+J1L/jntcMUs5rp/QffySjDxYgIstvhGa4f2pvLCD5WHQgDOSTrm7YfhHNnfBgK248PPzyzqwZToVB+v970SfcyqmU7Yl0SZqgqMp9qyicWcOL2LIA2shUJviyqjsZ0N2gUBGi62OE6JkB1hv3BwUBV6B6iZ0FdC4TodeI4z3uNpv62/qShXZAWDI2EkNzAgMBAAECggEAONN+/tNEzcELL9Ez+5WlJoR78DSne9q7RKcWkWIT+iQ3FxvKf80Kf4cZBHnms3sP1E7D7F6HQIxVYNmvQmq3ExDErciG1uBTMWpzVPTbA6Fwa/6y+3+ACjlHjl5O7j7iet20s6RdcRjWvdNSsvttU9tTtAd0BLdCKHHoKCYaX2szveRumm+1+gIsTeLO6nnHlKEpOP2LgToAaKuc1ZJj1D/ntDLUieqx6VG0LdHFhaneZrMW9PfWIKADx6FBpzoS0ugn6WKf32YOIN7PEoRTBHGPXPXEqwsK3TdiXcEnMNnmFbun1IJt6x6ZaPK8ICog8SY6aWIMgo3P8k7RUjAMcQKBgQDYYbTYt4Eefv7v2puunWIktHfxg//7sdkKkM7JnzWqhDGu7WavGNRBT1Im4T1YLdtOfur0lvkr+t+SAvcTNkvaStI3Cd+cd8I4plG2vlylsb+DklAPD4+zU2bnNWQYExSpbFURmZ0dP0JUc3OtJKPLsit9fzo9NCePTe1bnFo8CwKBgQDHJVCbfa+6pHRQI6LQLjUDVX7SNrS/Va8wkx/5VkECVll7sCPOoqr8n/0pSSwLfVB7I/r4qvvod4Dej5bVh8cMK2GiT+OeHWi0cJQyWnSa6rR6BK8ltMn999X05SGNwRtFruKJIz5eLac6WYo+ZfsBOJfqXJ4A7x+E5WcypQrPOQKBgAqfGTJ+J39ounjpoTS8EwI8PZsEYL9pJn9HRm9NOmQpYwr0KlM0A89E5oJ0Ef/PGHHM9xmUg5yuDuVq8dfmlWicvZ7oBCr5EfaX63Dt/TxA8max+u4SVHp4AJge3c/0t9HtOGvJv5Wc8lOU6zu3jbbFAy+A3En+0mZNa/ZQQXmrAoGANQfuyzlRDna0spKKzL1BSL3/o6MFxt3eZSUIorEhZqnv8kwZfPE8b0F7fP8LR5P7Vo9iSc3efy0zmBDMrdgWXVtACKUVjAlw1HwWOsJzwr01ijitG3FlSMgypaBOqxz9UjUcBkDoXtPxcExfz/YAPXcAnVxEhyMmVZFxRb9FfaECgYAWvD+grSxN3t03g2tFlfcPtsb9AR3KvVYnPJ8AvIj4vJXM46WhXubdY0FOMqeR2KuaZwZuR81jHX2od74yDuVl6nj5zsXZZ92MVtVx/66kVP3XMJJg2IS0ndkn5jlVDrdf0vcOA24PFptqiHl/yOUzvQLlOdOE7vyG+4ASNgK3ww==
+```
+
+
+2. 商户自行生成一对 RSA 密钥对B，格式为 PKCS8，长度为 2048 位，其中 B-publicKey 给到 Powercard，B-privateKey 由商户自行保管
+```shell
+#示例，商户生成密钥对B，商户给到 Powercard 的 B-publicKey：
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA66EnE2KBWYH0yDJMw3HL2Py7COkO2Zc67DmD7171Cs2gHUEGq1w8tBEOA2E2UvLL12diBxh4qFqUvx3Okaq3W2OVV5XgG1AG5pRfD6ThSVXcbF+y+wvOBjOoW60G5eXZmljTiKcYjP5wa90AwR9C6O7UAuqxfykw72ZwC+fp75dDmGsRNqFfbXrqKqa1Ezosy4FUphu0ERuTTXgHOpK61iQ/AM0p7RTDLBIPFElTds4xSsyLxMih77MfePPJJ4NNClQok009InEInZkHY/mAmvFvJScLzMje8Y5xgZsSPTJqwake0qvE6KsR09Frjbm0oj4u9BT3duIy8DMsguTAdQIDAQAB
+```
+
+```shell
+#示例，商户自行保管的 B-privateKey：
+MIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDroScTYoFZgfTIMkzDccvY/LsI6Q7ZlzrsOYPvXvUKzaAdQQarXDy0EQ4DYTZS8svXZ2IHGHioWpS/Hc6RqrdbY5VXleAbUAbmlF8PpOFJVdxsX7L7C84GM6hbrQbl5dmaWNOIpxiM/nBr3QDBH0Lo7tQC6rF/KTDvZnAL5+nvl0OYaxE2oV9teuoqprUTOizLgVSmG7QRG5NNeAc6krrWJD8AzSntFMMsEg8USVN2zjFKzIvEyKHvsx9488kng00KVCiTTT0icQidmQdj+YCa8W8lJwvMyN7xjnGBmxI9MmrBqR7Sq8ToqxHT0WuNubSiPi70FPd24jLwMyyC5MB1AgMBAAECggEBAJzXNPJjRCQ3K59CU/RYP87cUwbYUsklL9RjaF2iAEvDmUs/qFfR2polLAW15HoMIQDtUMPWVyIAwTgBeClf0BKl05dsLLMhbqZ2plv8bPTqkQEWJkWSkv1vzyXOo2PNvi1N6OfyCZZ4Go7BmanyzA/OQRL780/oNCl2LyjNotqVtyU8rpVZQKiH5PrVZ9bOsqGv5HC9XiqR+PUX9o111tI19XbJPf+36IemYeQ/YTmP6TJ1SQ9/++bxc2UsiSsLn5SSAql4H4UXMhMS69/ua+TBwhr7Pe/cFjLL2GUjjebonDgnSKZ9gR0S7genQCL5Yr6C3luFLnLmSdU8cuQrliECgYEA+hGMFf5DEI2URYhGvFAQY1Uyd7ClX0edn849Q1tnu8DCjAMhH3rAL7d9RYnKeudZmu0sCwnv9WZ13Sdz7itFU67ZMdyfU4RV4Q+ZPOGh3TxU/yEfWC6dwjQZNOmAmBqLrRf9618b6FvT3/Oa69rgbLWHhuZ0FwtsueBsO3pnVG0CgYEA8Tft8Ou9K/njnis4Jnb2xRN95eqQzGwErp/Szq9R8Bndzq+JAGBlmtWrabMNBLiNLXn8he+7k2Vhgy9H5EiOi10UNiAaCICH2ue0XS43VtN+zXj5jCDb5L5ujqiqHoainVW0p/6bwlyW/8R4lDalQLgC13TW/WvWBD2sNz7mRykCgYEAtobwVW1NzltJCqe52eIm1Bpvx+VsD+vaJbcICI5DXUwJtODj4HJcrXelPIii/qq3QNo096m9OMYc6dvORt3WsIpDhp2evfsuJCSamVGoMC/FaqPmmRsNk58rdu+pKVzW7vVAJfk6CZRdRm4telI81Zx63ACCY/+20MX6uj9SBNECgYBtZWoZ6y+98/SQ1RUADM/ZjP95+Cl3LD3rXDxk1AobFAAOLnm5m/44fFLi+vsaewA78ajerVyqej4BGr5F/8n11l7GNUTZOkFiu9aGs+ERFZXaZdT3Aif3042cUU3lzjWNmUL3NXc6bHdmw5nTzfygH1Palvixseg7wCSMYZBaEQKBgQCbEDST6bl9OrgSrQAwxc0VKTSTRtATra9oqy5o5faZ9SWSmgM9F7YlcJBGlvag72YLDYaUObIPs0vtrG9E7k4yiE5+KINQeLTCSGtG1gbPx4uC7uZEdfYtsUMyacofUwoOPcoyK3LsSfocDj2W4HpKxRYAAq0sWZC4CsixmhovPQ==
+```
+### 二、AES 加密请求体
+> 商户每次在请求 Powercard 接口的时候，都需要对 requestBody 进行 AES 加密，其中 AES key 为 32 位随机字符串
+1. 商户生成随机字符串 aesRandomKey = 38859e263747adad524566278efa64c6
+2. 使用 aesRandomKey 对 requestBody 进行 AES 加密得到最终请求的 data
+```json
+# requestBody 示例：
+{
+	"channel": "merchantCards",
+	"merchantId": "uu",
+	"merchantUserId": "testUser123",
+	"powerCardId": "a9f4cb3bfa8649b88853eded3ad853dd"
+}
+data = AESEncrypt(requestBody, aesRandomKey) = GUUUy4xwJBgDTKfU26y3W7G+RPtLJeZsU1zZQP8/xh3EwpnH67d3NViBlBIoje13ywnTmKbrXAXLePgiuSIzGcw8OuOhM6WM5iRXl6Odr5G9D+g/OBCInwIfjy3KDPkI9S8/S/GPBb04FRE7sHdjBSpuCchHu8Ak7IFHLSaSYHuMFDiB+e1kRL1vSU3buYEp
+```
+
+### 三、RSA 加密 AES Key
+> 商户完成前两步后，使用第一步中的 A 的 publicKey 对第二步的 AES Key 进行 RSA 加密，得到最终请求的 key
+```shell
+aesRandomKey = 38859e263747adad524566278efa64c6
+key = RSAEncrypt(aesRandomKey, A-publicKey) = UDQw7ica5+5o1A0CfygItW/daJzDmhxbNgF20k3HUCD333KE0LWCMpnJpV2uYBEVD8qMgITwbjjqQVER2kus9FLTdRDu/nPLR/NTblg7x54a0V6AovmpwDkI9hUemp3435NprJc1IQ8w0HriF5wNaAFDllHlM+3/uGWKnFILwwipte+VoXigk/IDrjFzQS5/cCrCdFbbvUL164NiCyaezEgjKhkZJnVbmNi0GdWvBGPAhJ6235xzmSq25fphRpIbn8Fzxkjc2jpgUdvxlpDMVEBIQFBUmldJ6yPoUlK82UDlF1X3mICxktWjS60QKI4uRHtqU4jqJLmKBU8pZ1+E/w==
+```
+
+### 四、构造 requestBody
+> 商户完成前三步后，使用第二步中生成的 data 和第三步中生成的 key，生成最终的 requestBody
+```json
+{
+    "data":"GUUUy4xwJBgDTKfU26y3W7G+RPtLJeZsU1zZQP8/xh3EwpnH67d3NViBlBIoje13ywnTmKbrXAXLePgiuSIzGcw8OuOhM6WM5iRXl6Odr5G9D+g/OBCInwIfjy3KDPkI9S8/S/GPBb04FRE7sHdjBSpuCchHu8Ak7IFHLSaSYHuMFDiB+e1kRL1vSU3buYEp",
+    "key":"UDQw7ica5+5o1A0CfygItW/daJzDmhxbNgF20k3HUCD333KE0LWCMpnJpV2uYBEVD8qMgITwbjjqQVER2kus9FLTdRDu/nPLR/NTblg7x54a0V6AovmpwDkI9hUemp3435NprJc1IQ8w0HriF5wNaAFDllHlM+3/uGWKnFILwwipte+VoXigk/IDrjFzQS5/cCrCdFbbvUL164NiCyaezEgjKhkZJnVbmNi0GdWvBGPAhJ6235xzmSq25fphRpIbn8Fzxkjc2jpgUdvxlpDMVEBIQFBUmldJ6yPoUlK82UDlF1X3mICxktWjS60QKI4uRHtqU4jqJLmKBU8pZ1+E/w=="
+}
+```
+
+### 五、解密 responseBody
+> Powercard 在收到商户的请求并成功处理后，会按照同样的方式对 response 进行加密，商户在收到 response 后需要使用 B-privateKey 解析出 pw-aesRandomkey, 然后使用 pw-aesRandomkey 对 data 进行解密得到最终的 responseBody
+1. 商户收到 Powercard 的 responseBody，使用 B-privateKey 解析出 pw-aesRandomkey
+```json
+{
+    "data":"28/T67pg8eZ3C4aYSJG/2Q+zzRyzD/ih061452YRKEM28zgAL7xhV84JzSitKeFjsx9l75uq+frRXzeYgsn2VNdz0tHhD9GMrxgEt+6vkXlBsyorxkEytup6HqchygsI3WS/C/fb/GZAxxsksM0kIm+N3xrnncRFk+iXmQmm1p48mttgxi/ZBTAy3RyJJHo7cMOPLQ557nIdeJeci+6WKcKWX5LQhz9gzLOZpmS44zMspqyAR3p3YKV9kfQ9d146",
+    "key":"YX90WTkPqK+U0ruHnJIT2n6nQE8WOw0jxp3Pjd599X9utShvEi3GmVJq+Kj2coAeY7zk7MKcitkGOHY68LqZucul8v6dCM3qTSZloh6EYN4HTK92o4xWKVPqSSDeKNVvReahHyanQoEtyie//VZpCb+JMMuouTqchc1c4GWR3hdEluDd+GQaW6DBgwzFusHfE8UQRNqImVmziY8vM4bYF8eTEz4gZ/5mRVRIzPboQ5//wFbBqj2tKwpHaei64saZBTjQiCoeZLH/seTnn3Y7QKwjE77koFhBA0PQcw7xTxIigTFciMdzI6hQLHwIqyUeqbSPZdQivLU/j0cf0UAqlA=="
+}
+pw-aesRandomkey = RSADencrypt(key, B-privateKey) = 4cb9ebb3683547c6893d13703af77416
+```
+
+1. 使用 pw-aesRandomkey 对 data 进行 AES 解密得到最终的 responseBody
+```json
+responseBody = AESDencrypt(data, pw-aesRandomkey) = "
+{
+	"data": {
+		"balance": 100,
+		"currency": "USD"
+	},
+	"detailMessage": "",
+	"errorCode": "",
+	"errorMessage": "",
+	"errorMessageEn": "",
+	"requestId": "",
+	"success": true
+}
+"
+```
