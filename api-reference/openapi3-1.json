@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.1.0",
   "info": {
     "title": "power-card",
     "description": "",
@@ -1728,7 +1728,7 @@
             "type": "number",
             "description": "充值金额",
             "minimum": 0,
-            "exclusiveMinimum": true
+            "exclusiveMinimum": 0
           },
           "activeRecharge": {
             "type": "boolean",
@@ -2156,7 +2156,7 @@
             "type": "number",
             "description": "限额",
             "minimum": 0,
-            "exclusiveMinimum": true
+            "exclusiveMinimum": 0
           }
         },
         "required": [
@@ -3182,7 +3182,7 @@
             "type": "number",
             "description": "充值金额",
             "minimum": 0.01,
-            "exclusiveMinimum": true
+            "exclusiveMinimum": 0.01
           },
           "currency": {
             "type": "string",
@@ -3280,13 +3280,13 @@
             "type": "integer",
             "description": "页码",
             "minimum": 0,
-            "exclusiveMinimum": true
+            "exclusiveMinimum": 0
           },
           "pageSize": {
             "type": "integer",
             "description": "每页数量",
             "minimum": 1,
-            "exclusiveMinimum": true
+            "exclusiveMinimum": 1
           },
           "startTimeStamp": {
             "type": "integer",
@@ -3562,6 +3562,14 @@
     "securitySchemes": {}
   },
   "servers": [
+    {
+      "url": "https://powercard.innotech-stage.com/powercard-service",
+      "description": "STG环境"
+    },
+    {
+      "url": "https://powercard.innotech-rel.com/powercard-service",
+      "description": "REL环境"
+    },
     {
       "url": "https://pw.ulikewallet.com/powercard-service",
       "description": "PROD环境"

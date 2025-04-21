@@ -1,33 +1,17 @@
 ---
 title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
 ---
 
 <Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
+  以下接口 Response 为通信加密前的明文
 </Note>
 
-## Welcome
-
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
-
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
-
-## Authentication
-
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+**加密后Response示例：**  
 
 ```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
+{
+  "key" : "38859e263747adad524566278efa64c6",
+  "data" : "UDQw7ica5+5o1A0CfygItW/daJzDmhxbNgF20k3HUCD333KE0LWCMpnJpV2uYBEVD8qMgITwbjjqQVER2kus9FLTdRDu/nPLR/NTblg7x54a0V6AovmpwDkI9hUemp3435NprJc1IQ8w0HriF5wNaAFDllHlM+3/uGWKnFILwwipte+VoXigk/IDrjFzQS5/cCrCdFbbvUL164NiCyaezEgjKhkZJnVbmNi0GdWvBGPAhJ6235xzmSq25fphRpIbn8Fzxkjc2jpgUdvxlpDMVEBIQFBUmldJ6yPoUlK82UDlF1X3mICxktWjS60QKI4uRHtqU4jqJLmKBU8pZ1+E/w=="
+}
 ```
+商户需进行解密才能获取到明文数据

@@ -33,18 +33,22 @@
         "tab": "API 接入",
         "groups": [
           {
-            "group": "API Documentation",
+            "group": "API 文档",
             "pages": [
               "api-reference/introduction"
             ]
           },
           {
-            "group": "Endpoint Examples",
+            "group": "KYC 校验",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "api-reference/kyc/getToken",
+              "api-reference/kyc/getStatus"
+            ]
+          },{
+            "group": "用户",
+            "pages": [
+              "api-reference/user/createUser",
+              "api-reference/user/getUser"
             ]
           }
         ]
@@ -52,8 +56,8 @@
     ]
   },
   "logo": {
-    "light": "/logo/logo.svg",
-    "dark": "/logo/logo.svg"
+    "light": "/logo/light.png",
+    "dark": "/logo/dark.png"
   },
   "navbar": {
     "links": [
