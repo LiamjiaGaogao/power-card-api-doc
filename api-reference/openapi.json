@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.1.0",
   "info": {
     "title": "power-card",
     "description": "",
@@ -1286,8 +1286,73 @@
       }
     }
   },
+  "webhooks": {
+  "/powercard/callbackExample": {
+    "post": {
+      "summary": "webhook参考",
+      "deprecated": false,
+      "description": "",
+      "tags": [],
+      "parameters": [],
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/MerchantNotifyRequest"
+            },
+            "examples": {}
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "success",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string",
+                "const": "success",
+                "nullable": true
+              }
+            }
+          },
+          "headers": {}
+        }
+      },
+      "security": []
+    }
+  }
+  },
   "components": {
     "schemas": {
+      "MerchantNotifyRequest": {
+        "type": "object",
+        "properties": {
+          "eventType": {
+            "type": "string",
+            "enum": [
+              "card_create",
+              "card_recharge",
+              "card_cancel",
+              "card_transaction",
+              "card_status",
+              "card_verify",
+              "card_adjustment"
+            ]
+          },
+          "data": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "eventType",
+          "data",
+          "key"
+        ]
+      },
       "KYCTokenResponse": {
         "type": "object",
         "properties": {

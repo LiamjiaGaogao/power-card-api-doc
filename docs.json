@@ -44,11 +44,43 @@
               "api-reference/kyc/getToken",
               "api-reference/kyc/getStatus"
             ]
-          },{
+          },
+          {
             "group": "用户",
             "pages": [
               "api-reference/user/createUser",
               "api-reference/user/getUser"
+            ]
+          },
+          {
+            "group": "卡片",
+            "pages": [
+              "api-reference/card/createCard",
+              "api-reference/card/getCardInfo",
+              "api-reference/card/getCardConfigList",
+              "api-reference/card/rechargeCard",
+              "api-reference/card/queryBalance",
+              "api-reference/card/setCardStatus",
+              "api-reference/card/closeCard",
+              "api-reference/card/setLimit",
+              "api-reference/card/setPINIframe",
+              "api-reference/card/printCard",
+              "api-reference/card/getPhysicalCardInfo",
+              "api-reference/card/getCardStatus"
+            ]
+          },
+          {
+            "group": "交易",
+            "pages": [
+              "api-reference/transaction/queryTransactions",
+              "api-reference/transaction/queryOrder"
+            ]
+          },
+          {
+            "group": "商户",
+            "pages": [
+              "api-reference/merchant/balance",
+              "api-reference/merchant/recharge"
             ]
           }
         ]
@@ -78,5 +110,9 @@
       "github": "https://github.com/mintlify",
       "linkedin": "https://linkedin.com/company/mintlify"
     }
+  },
+  "search": {
+    "enabled": true,
+    "provider": "local"
   }
 }

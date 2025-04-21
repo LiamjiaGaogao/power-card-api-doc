@@ -1,10 +1,15 @@
 ---
 title: "接入前准备"
+description: "商户接入powercard需准备提供以下："
 ---
 
 ### 1. 申请 merchantId 和密钥
 
-Powercard 与商户间的服务通信使用 AES \+ RSA 的方式对请求和响应的内容进行加解密，因此在正式接入前，需要先提前申请对应的 merchantId 和密钥。具体详情在[通信加密]("developmentGuide/startQuickly/encryption.mdx")
+Powercard 与商户间的服务通信使用 AES + RSA 的方式对请求和响应的内容进行加解密，因此在正式接入前，需要先提前申请对应的 merchantId 和密钥。
+
+**详情请参阅：**
+
+* **[通信加密]("developmentGuide/startQuickly/encryption.mdx")**
 
 ### 2. 选择卡产品
 
@@ -24,4 +29,13 @@ Powercard 支持数字卡、虚拟卡、实体卡等不同的卡产品，不同�
 
 ### 4. 回调接口
 
-商户需提供[webhook回调接口]("developmentGuide/startQuickly/callback.mdx")，回调 api 用于在特定事件发生时，PowerCard 向商户系统发送通知。如创建卡片成功、充值成功、注销成功等。
+商户需提供[webhook回调接口]("developmentGuide/startQuickly/callback.mdx")，回调 api 用于在特定事件发生时，PowerCard 向商户系统发送通知，告知操作结果或状态变化。商户需按规则实现回调接口，确保及时接受并处理通知。主要用于以下场景：
+* 创建卡片
+* 卡片状态变化
+* 卡片充值
+* 卡片消费
+* 卡片注销
+
+**详情请参阅：**
+
+* **[webhook回调]("developmentGuide/startQuickly/callback.mdx")**
