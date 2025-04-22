@@ -1,0 +1,34 @@
+---
+title: "Preparation Before Integration"
+description: "Merchants need to prepare the following items to integrate with Powercard:"
+---
+
+### 1. Apply for merchantId and Keys
+Powercard uses AES + RSA encryption for secure communication between merchants and the service. Therefore, before formal integration, it is necessary to apply for the corresponding merchantId and keys in advance.
+
+**For more details, please refer to:**
+- [Communication Encryption](/developmentGuide/startQuickly/encryption)
+
+### 2. Select Card Products
+Powercard supports different card products including digital cards, virtual cards, and physical cards. Different card products have different rates and usage scenarios. You can choose one or multiple card products based on your business needs.
+
+#### 2.1 Card Products
+| Card Product (channel)  | Supported Card Types   | Status   | Is [KYC](https://sumsub.com/kyc-compliance/) Required? |
+| ------------- | ------- | ---- |-----------------------------------------------|
+| merchantCards | Virtual Card     | Launched  | Not Required                                           |
+| straitsX      | Virtual/Physical Card | In Beta Testing  | Required                                            |
+| beu           | Physical Card     | Development Completed | Required                                            |
+
+### 3. IP Whitelist
+Merchants need to provide a fixed IP address of their server to be added to the IP whitelist. Only IP addresses in the whitelist can access Powercard's services, ensuring system security.
+
+### 4. Callback Interface
+Merchants need to provide a [webhook callback interface](/developmentGuide/startQuickly/callback). The callback API is used to notify the merchant's system when specific events occur, informing the operation results or status changes. Merchants need to implement the callback interface according to the rules to ensure timely receipt and processing of notifications. Mainly used in the following scenarios:
+- Card Creation
+- Card Status Change
+- Card Recharge
+- Card Consumption
+- Card Cancellation
+
+**For more details, please refer to:**
+- [Webhook Callback](/developmentGuide/startQuickly/callback)

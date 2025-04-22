@@ -1,0 +1,85 @@
+---
+title: "Communication Encryption"
+---
+
+> When requesting Powercard, add merchantid=**pre-registered merchantId** in http header, e.g. merchantid=uu
+
+### 1. Generate RSA Key Pairs
+
+> Powercard uses AES(AES/ECB/PKCS5Padding) + RSA(RSA/ECB/PKCS1Padding) for service communication encryption/decryption. Merchants must apply for merchantId and keys before integration.
+
+1. Powercard generates RSA Key Pair A (PKCS8 format, 2048-bit). A-publicKey is provided to merchant, A-privateKey is kept by Powercard
+
+```shell
+# Example: Pre-registered A-publicKey from Powercard:
+```
+
+```shell
+# Example: Powercard's A-privateKey:
+```
+
+2. Merchant generates RSA Key Pair B (PKCS8 format, 2048-bit). B-publicKey is provided to Powercard, B-privateKey is kept by merchant
+
+```shell
+# Example: Merchant generates Key Pair B, provides B-publicKey to Powercard:
+```
+
+```shell
+# Example: Merchant keeps B-privateKey securely:
+```
+
+### 2. AES Encryption Process
+
+> Merchant must AES-encrypt requestBody with 32-character random string for each API call
+
+1. Generate random string as AES key (32 characters):
+# Encrypt AES key with RSA public key
+aesRandomKey = 38859e263747adad524566278efa64c6
+2. Encrypt requestBody with AES using the generated key:
+data = AESEncrypt(requestBody, aesRandomKey)
+
+```json
+# RequestBody Example:
+{
+	"channel": "merchantCards",
+	"merchantId": "uu",
+	"merchantUserId": "testUser123",
+	"powerCardId": "a9f4cb3bfa8649b88853eded3ad853dd"
+}
+```
+
+### 3. RSA Encryption for AES Key
+
+> After completing the first two steps, the merchant uses A's publicKey from the first step to RSA encrypt the AES Key from the second step, obtaining the final request key
+
+```shell
+# Encrypt AES key with RSA public key
+aesRandomKey = 38859e263747adad524566278efa64c6
+```
+
+### 4. Construct Final Request
+
+> After completing the first three steps, the merchant uses the data generated in the second step and the key generated in the third step to construct the final requestBody
+
+```json
+
+```
+
+### 5. Response Decryption Process
+
+> Powercard encrypts responses using same method. Merchant should decrypt with B-privateKey to get pw-aesRandomkey, then decrypt data with AES key
+
+1. Decrypt response with merchant's B-privateKey to retrieve AES key:
+pw-aesRandomkey = RSADecrypt(response.key, B-privateKey)
+
+```json
+
+```
+
+2. Decrypt response data with obtained AES key:
+responseBody = AESDecrypt(response.data, pw-aesRandomkey)
+
+```json
+
+"
+```

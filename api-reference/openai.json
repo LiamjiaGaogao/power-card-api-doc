@@ -49,7 +49,11 @@
             "headers": {}
           }
         },
-        "security": []
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
       }
     },
     "/kyc/getKYCStatus": {
@@ -93,7 +97,11 @@
             "headers": {}
           }
         },
-        "security": []
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
       }
     },
     "/card/config/list": {
@@ -172,7 +180,11 @@
             "headers": {}
           }
         },
-        "security": []
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
       }
     },
     "/card/create": {
@@ -217,7 +229,11 @@
             "headers": {}
           }
         },
-        "security": []
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
       }
     },
     "/card/recharge": {
@@ -262,7 +278,11 @@
             "headers": {}
           }
         },
-        "security": []
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
       }
     },
     "/card/balance": {
@@ -307,7 +327,11 @@
             "headers": {}
           }
         },
-        "security": []
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
       }
     },
     "/card/cardInfo": {
@@ -361,7 +385,11 @@
             "headers": {}
           }
         },
-        "security": []
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
       }
     },
     "/card/setStatus": {
@@ -406,7 +434,11 @@
             "headers": {}
           }
         },
-        "security": []
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
       }
     },
     "/card/close": {
@@ -451,7 +483,11 @@
             "headers": {}
           }
         },
-        "security": []
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
       }
     },
     "/card/setLimit": {
@@ -495,7 +531,11 @@
             "headers": {}
           }
         },
-        "security": []
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
       }
     },
     "/card/setPINIframe": {
@@ -539,7 +579,11 @@
             "headers": {}
           }
         },
-        "security": []
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
       }
     },
     "/card/changePINIframe": {
@@ -583,7 +627,11 @@
             "headers": {}
           }
         },
-        "security": []
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
       }
     },
     "/card/resetPINIframe": {
@@ -627,7 +675,11 @@
             "headers": {}
           }
         },
-        "security": []
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
       }
     },
     "/card/printCard": {
@@ -672,7 +724,11 @@
             "headers": {}
           }
         },
-        "security": []
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
       }
     },
     "/card/getPhysicalCardInfo": {
@@ -730,7 +786,11 @@
             "headers": {}
           }
         },
-        "security": []
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
       }
     },
     "/card/setPhoneNumber": {
@@ -772,7 +832,11 @@
             "headers": {}
           }
         },
-        "security": []
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
       }
     },
     "/card/setAddress": {
@@ -830,7 +894,11 @@
             "headers": {}
           }
         },
-        "security": []
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
       }
     },
     "/card/activateCard": {
@@ -888,7 +956,11 @@
             "headers": {}
           }
         },
-        "security": []
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
       }
     },
     "/card/getCardStatus": {
@@ -932,7 +1004,11 @@
             "headers": {}
           }
         },
-        "security": []
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
       }
     },
     "/user/create": {
@@ -976,7 +1052,11 @@
             "headers": {}
           }
         },
-        "security": []
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
       }
     },
     "/user/query": {
@@ -1040,7 +1120,11 @@
             "headers": {}
           }
         },
-        "security": []
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
       }
     },
     "/merchant/balance": {
@@ -1086,7 +1170,11 @@
             "headers": {}
           }
         },
-        "security": []
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
       }
     },
     "/merchant/recharge": {
@@ -1132,7 +1220,11 @@
             "headers": {}
           }
         },
-        "security": []
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
       }
     },
     "/transaction/queryTransactions": {
@@ -1193,7 +1285,11 @@
             "headers": {}
           }
         },
-        "security": []
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
       }
     },
     "/transaction/queryBizStatus": {
@@ -1237,7 +1333,11 @@
             "headers": {}
           }
         },
-        "security": []
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
       }
     },
     "/transaction/queryOrder": {
@@ -1282,46 +1382,50 @@
             "headers": {}
           }
         },
-        "security": []
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
       }
     }
   },
   "webhooks": {
-  "/powercard/callbackExample": {
-    "post": {
-      "summary": "webhook参考",
-      "deprecated": false,
-      "description": "",
-      "tags": [],
-      "parameters": [],
-      "requestBody": {
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/MerchantNotifyRequest"
-            },
-            "examples": {}
-          }
-        }
-      },
-      "responses": {
-        "200": {
-          "description": "success",
+    "/powercard/callbackExample": {
+      "post": {
+        "summary": "webhook参考",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "type": "string",
-                "const": "success",
-                "nullable": true
-              }
+                "$ref": "#/components/schemas/MerchantNotifyRequest"
+              },
+              "examples": {}
             }
-          },
-          "headers": {}
-        }
-      },
-      "security": []
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "const": "success",
+                  "nullable": true
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
     }
-  }
   },
   "components": {
     "schemas": {
@@ -1793,7 +1897,7 @@
             "type": "number",
             "description": "充值金额",
             "minimum": 0,
-            "exclusiveMinimum": true
+            "exclusiveMinimum": 0
           },
           "activeRecharge": {
             "type": "boolean",
@@ -2221,7 +2325,7 @@
             "type": "number",
             "description": "限额",
             "minimum": 0,
-            "exclusiveMinimum": true
+            "exclusiveMinimum": 0
           }
         },
         "required": [
@@ -3247,7 +3351,7 @@
             "type": "number",
             "description": "充值金额",
             "minimum": 0.01,
-            "exclusiveMinimum": true
+            "exclusiveMinimum": 0.01
           },
           "currency": {
             "type": "string",
@@ -3345,13 +3449,13 @@
             "type": "integer",
             "description": "页码",
             "minimum": 0,
-            "exclusiveMinimum": true
+            "exclusiveMinimum": 0
           },
           "pageSize": {
             "type": "integer",
             "description": "每页数量",
             "minimum": 1,
-            "exclusiveMinimum": true
+            "exclusiveMinimum": 1
           },
           "startTimeStamp": {
             "type": "integer",
@@ -3624,7 +3728,13 @@
         }
       }
     },
-    "securitySchemes": {}
+    "securitySchemes": {
+      "apikey-header-merchantId": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "merchantId"
+      }
+    }
   },
   "servers": [
     {
@@ -3632,5 +3742,9 @@
       "description": "PROD环境"
     }
   ],
-  "security": []
+  "security": [
+    {
+      "apikey-header-merchantId": []
+    }
+  ]
 }

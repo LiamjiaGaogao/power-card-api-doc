@@ -1,24 +1,50 @@
 ---
 title: "接入流程"
 ---
+
 ### 创建卡流程
 <img
-style={{ borderRadius: '0.5rem' }}
-src="/images/creat-card-process.png"
+style={{ borderRadius: '0.5rem', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}
+src="/images/process/开卡流程.png"
 />
+
+**相关接口：**   
+- [获取KYC Token](/api-reference/kyc/getToken)   
+- [获取KYC状态](/api-reference/kyc/getStatus)   
+- [创建卡](/api-reference/card/createCard)   
+- [商户回调](/api-reference/callback/webhook)
+
+---
 
 ### 充值流程
 <img
-style={{ borderRadius: '0.5rem' }}
-src="/images/charge-process.png"
+style={{ borderRadius: '0.5rem', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}
+src="/images/process/充值流程.png"
 />
+
+**相关接口：**   
+- [充值](/api-reference/card/recharge.mdx)    
+- [商户回调](/api-reference/callback/webhook)
+
+---
+
 ### 消费流程
 <img
-style={{ borderRadius: '0.5rem' }}
-src="/images/play-card-process.png"
+style={{ borderRadius: '0.5rem', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}
+src="/images/process/消费流程.png"
 />
+
+**相关接口：**
+- [商户回调](/api-reference/callback/webhook)
+
+---
+
 ### 注销流程
 <img
-style={{ borderRadius: '0.5rem' }}
-src="/images/close-card-process.png"
+style={{ borderRadius: '0.5rem', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}
+src="/images/process/注销流程.png"
 />
+
+**相关接口：**   
+- [关卡](/api-reference/kyc/closeCard.mdx)   
+- [商户回调](/api-reference/callback/webhook)

@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "powercard",
   "colors": {
     "primary": "#16A34A",
     "light": "#07C983",
@@ -9,78 +9,164 @@
   },
   "favicon": "logo/logo.svg",
   "navigation": {
-    "tabs": [
+    "languages": [
       {
-        "tab": "开发指南",
-        "groups": [
+        "language": "cn",
+        "tabs": [
           {
-            "group": "产品介绍",
-            "pages": [
-              "developmentGuide/productIntroduction"
+            "tab": "开发指南",
+            "groups": [
+              {
+                "group": "产品介绍",
+                "pages": [
+                  "developmentGuide/productIntroduction"
+                ]
+              },{
+                "group": "快速开始",
+                "pages": [
+                  "developmentGuide/startQuickly/prepare",
+                  "developmentGuide/startQuickly/process",
+                  "developmentGuide/startQuickly/encryption",
+                  "developmentGuide/startQuickly/callback"
+                ]
+              }
             ]
-          },{
-            "group": "快速开始",
-            "pages": [
-              "developmentGuide/startQuickly/prepare",
-              "developmentGuide/startQuickly/process",
-              "developmentGuide/startQuickly/encryption",
-              "developmentGuide/startQuickly/callback"
+          },
+          {
+            "tab": "API 接入",
+            "groups": [
+              {
+                "group": "API 文档",
+                "pages": [
+                  "api-reference/introduction"
+                ]
+              },
+              {
+                "group": "KYC 校验",
+                "pages": [
+                  "api-reference/kyc/getToken",
+                  "api-reference/kyc/getStatus"
+                ]
+              },
+              {
+                "group": "用户",
+                "pages": [
+                  "api-reference/user/createUser",
+                  "api-reference/user/getUser"
+                ]
+              },
+              {
+                "group": "卡片",
+                "pages": [
+                  "api-reference/card/createCard",
+                  "api-reference/card/getCardInfo",
+                  "api-reference/card/getCardConfigList",
+                  "api-reference/card/rechargeCard",
+                  "api-reference/card/queryBalance",
+                  "api-reference/card/setCardStatus",
+                  "api-reference/card/closeCard",
+                  "api-reference/card/setLimit",
+                  "api-reference/card/setPINIframe",
+                  "api-reference/card/printCard",
+                  "api-reference/card/getPhysicalCardInfo",
+                  "api-reference/card/getCardStatus"
+                ]
+              },
+              {
+                "group": "交易",
+                "pages": [
+                  "api-reference/transaction/queryTransactions",
+                  "api-reference/transaction/queryOrder",
+                  "api-reference/transaction/queryBusiness"
+                ]
+              },
+              {
+                "group": "商户",
+                "pages": [
+                  "api-reference/merchant/balance",
+                  "api-reference/merchant/recharge"
+                ]
+              }
             ]
           }
         ]
-      },
-      {
-        "tab": "API 接入",
-        "groups": [
+      },{
+        "language": "en",
+        "tabs": [
           {
-            "group": "API 文档",
-            "pages": [
-              "api-reference/introduction"
+            "tab": "Development Guide",
+            "groups": [
+              {
+                "group": "Product Introduction",
+                "pages": [
+                  "developmentGuide/en/productIntroduction"
+                ]
+              },{
+                "group": "Quick Start",
+                "pages": [
+                  "developmentGuide/en/startQuickly/prepare",
+                  "developmentGuide/en/startQuickly/process",
+                  "developmentGuide/en/startQuickly/encryption",
+                  "developmentGuide/en/startQuickly/callback"
+                ]
+              }
             ]
           },
           {
-            "group": "KYC 校验",
-            "pages": [
-              "api-reference/kyc/getToken",
-              "api-reference/kyc/getStatus"
-            ]
-          },
-          {
-            "group": "用户",
-            "pages": [
-              "api-reference/user/createUser",
-              "api-reference/user/getUser"
-            ]
-          },
-          {
-            "group": "卡片",
-            "pages": [
-              "api-reference/card/createCard",
-              "api-reference/card/getCardInfo",
-              "api-reference/card/getCardConfigList",
-              "api-reference/card/rechargeCard",
-              "api-reference/card/queryBalance",
-              "api-reference/card/setCardStatus",
-              "api-reference/card/closeCard",
-              "api-reference/card/setLimit",
-              "api-reference/card/setPINIframe",
-              "api-reference/card/printCard",
-              "api-reference/card/getPhysicalCardInfo",
-              "api-reference/card/getCardStatus"
-            ]
-          },
-          {
-            "group": "交易",
-            "pages": [
-              "api-reference/transaction/queryTransactions",
-              "api-reference/transaction/queryOrder"
-            ]
-          },
-          {
-            "group": "商户",
-            "pages": [
-              "api-reference/merchant/balance",
-              "api-reference/merchant/recharge"
+            "tab": "API Integration",
+            "groups": [
+              {
+                "group": "API Documentation",
+                "pages": [
+                  "api-reference/en/introduction"
+                ]
+              },
+              {
+                "group": "KYC Verification",
+                "pages": [
+                  "api-reference/en/kyc/getToken",
+                  "api-reference/en/kyc/getStatus"
+                ]
+              },
+              {
+                "group": "User",
+                "pages": [
+                  "api-reference/en/user/createUser",
+                  "api-reference/en/user/getUser"
+                ]
+              },
+              {
+                "group": "Card",
+                "pages": [
+                  "api-reference/en/card/createCard",
+                  "api-reference/en/card/getCardInfo",
+                  "api-reference/en/card/getCardConfigList",
+                  "api-reference/en/card/rechargeCard",
+                  "api-reference/en/card/queryBalance",
+                  "api-reference/en/card/setCardStatus",
+                  "api-reference/en/card/closeCard",
+                  "api-reference/en/card/setLimit",
+                  "api-reference/en/card/setPINIframe",
+                  "api-reference/en/card/printCard",
+                  "api-reference/en/card/getPhysicalCardInfo",
+                  "api-reference/en/card/getCardStatus"
+                ]
+              },
+              {
+                "group": "Transaction",
+                "pages": [
+                  "api-reference/en/transaction/queryTransactions",
+                  "api-reference/en/transaction/queryOrder",
+                  "api-reference/en/transaction/queryBusiness"
+                ]
+              },
+              {
+                "group": "Merchant",
+                "pages": [
+                  "api-reference/en/merchant/balance",
+                  "api-reference/en/merchant/recharge"
+                ]
+              }
             ]
           }
         ]
@@ -95,24 +181,13 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:hello@uuwallet.com"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "UU Wallet",
+      "href": "https://www.uuwallet.com/newpaycard"
     }
-  },
-  "footer": {
-    "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
-    }
-  },
-  "search": {
-    "enabled": true,
-    "provider": "local"
   }
 }
