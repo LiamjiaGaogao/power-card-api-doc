@@ -2712,7 +2712,7 @@
           },
           "status": {
             "type": "string",
-            "description": "status"
+            "description": "实体卡片状态（printing：印制中，inTransit：运输中，delivered：已送达，activated：已激活，unknown：未知）\n"
           }
         },
         "required": [
@@ -2826,7 +2826,7 @@
           },
           "physicalCardStatus": {
             "type": "string",
-            "description": "实体卡状态"
+            "description": "实体卡片状态（printing：印制中，inTransit：运输中，delivered：已送达，activated：已激活，unknown：未知）\n"
           }
         },
         "required": [
@@ -3611,7 +3611,7 @@
           },
           "transStatus": {
             "type": "string",
-            "description": "交易状态"
+            "description": "交易状态（approved：同意，failed：失败，pending：处理中）"
           },
           "remark": {
             "type": "string",
@@ -3619,7 +3619,7 @@
           },
           "transType": {
             "type": "string",
-            "description": "交易类型"
+            "description": "交易类型（purchase：购买，atm：取现，refund：退款，handling_fee：手续费，auth_fee：授权费，oct：转账，reversal：撤销，partial_refund：部分退款，partial_reversal：部分撤销，hold：预扣，hold_refund：预扣退款，unknown：未知）"
           },
           "transTime": {
             "type": "integer",
@@ -3769,7 +3769,7 @@
           },
           "status": {
             "type": "string",
-            "description": "订单状态"
+            "description": "订单状态（success：成功，failed：失败，pending：处理中，retry：重试）"
           }
         }
       }
