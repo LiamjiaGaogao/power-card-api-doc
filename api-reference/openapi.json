@@ -1,0 +1,3728 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "power-card",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [],
+  "paths": {
+    "/kyc/getKYCToken": {
+      "post": {
+        "summary": "kyc获取token",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KYCTokenRequest",
+                "description": ""
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommonResultKYCTokenResponse"
+                },
+                "example": {
+                  "success": false,
+                  "errorCode": "",
+                  "errorMessage": "",
+                  "errorMessageEn": "",
+                  "detailMessage": "",
+                  "requestId": "",
+                  "data": {
+                    "token": "",
+                    "powerCardUserId": ""
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
+      }
+    },
+    "/kyc/getKYCStatus": {
+      "post": {
+        "summary": "获取kyc状态",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KYCStatusRequest",
+                "description": ""
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommonResultKYCStatusResponse"
+                },
+                "example": {
+                  "success": false,
+                  "errorCode": "",
+                  "errorMessage": "",
+                  "errorMessageEn": "",
+                  "detailMessage": "",
+                  "requestId": "",
+                  "data": {
+                    "status": ""
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
+      }
+    },
+    "/card/config/list": {
+      "post": {
+        "summary": "可开卡片信息",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryCardConfigRequest",
+                "description": ""
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommonResultQueryCardConfigResponse"
+                },
+                "example": {
+                  "success": false,
+                  "errorCode": "",
+                  "errorMessage": "",
+                  "errorMessageEn": "",
+                  "detailMessage": "",
+                  "requestId": "",
+                  "data": {
+                    "cardConfigs": [
+                      {
+                        "powerCardConfigId": "",
+                        "applyDiscount": 0,
+                        "applyFee": 0,
+                        "cardNature": "",
+                        "cardType": "",
+                        "currency": "",
+                        "description": "",
+                        "enable": false,
+                        "img": "",
+                        "monthFee": 0,
+                        "rechargeFee": 0,
+                        "refundFee": 0,
+                        "title": "",
+                        "titleEn": "",
+                        "activeMinLimit": 0,
+                        "rechargeMinLimit": 0,
+                        "rechargeMaxLimit": 0,
+                        "pwRechargeFee": 0,
+                        "pwTransFee": 0,
+                        "pwCloseFee": 0,
+                        "pwRechargeFeeType": "",
+                        "pwTransFeeType": "",
+                        "pwCloseFeeType": "",
+                        "needKYC": false,
+                        "physicalCardAvailable": false,
+                        "needPIN": false,
+                        "needMobile": false,
+                        "issuingBank": "",
+                        "channel": "",
+                        "physicalCardCreateFee": 0,
+                        "googlePayAvailable": false,
+                        "applePayAvailable": false
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
+      }
+    },
+    "/card/create": {
+      "post": {
+        "summary": "创建卡片",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCardRequest",
+                "description": ""
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommonResultCreateCardResponse"
+                },
+                "example": {
+                  "success": false,
+                  "errorCode": "",
+                  "errorMessage": "",
+                  "errorMessageEn": "",
+                  "detailMessage": "",
+                  "requestId": "",
+                  "data": {
+                    "powerCardId": "",
+                    "status": ""
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
+      }
+    },
+    "/card/recharge": {
+      "post": {
+        "summary": "充值",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RechargeCardRequest",
+                "description": ""
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommonResultRechargeCardResponse"
+                },
+                "example": {
+                  "success": false,
+                  "errorCode": "",
+                  "errorMessage": "",
+                  "errorMessageEn": "",
+                  "detailMessage": "",
+                  "requestId": "",
+                  "data": {
+                    "bizId": "",
+                    "status": ""
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
+      }
+    },
+    "/card/balance": {
+      "post": {
+        "summary": "查看余额",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryBalanceRequest",
+                "description": ""
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommonResultQueryBalanceResponse"
+                },
+                "example": {
+                  "success": false,
+                  "errorCode": "",
+                  "errorMessage": "",
+                  "errorMessageEn": "",
+                  "detailMessage": "",
+                  "requestId": "",
+                  "data": {
+                    "balance": 0,
+                    "currency": ""
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
+      }
+    },
+    "/card/cardInfo": {
+      "post": {
+        "summary": "查看卡片信息",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryCardInfoRequest",
+                "description": ""
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommonResultQueryCardInfoResponse"
+                },
+                "example": {
+                  "success": false,
+                  "errorCode": "",
+                  "errorMessage": "",
+                  "errorMessageEn": "",
+                  "detailMessage": "",
+                  "requestId": "",
+                  "data": {
+                    "powerCardId": "",
+                    "cvv2": "",
+                    "currency": "",
+                    "expireDate": "",
+                    "monthFee": 0,
+                    "rechargeFee": 0,
+                    "status": "",
+                    "channelCardNo": "",
+                    "setPIN": false,
+                    "physicalCardInfoId": 0,
+                    "kycStatus": ""
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
+      }
+    },
+    "/card/setStatus": {
+      "post": {
+        "summary": "设置卡片状态",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SetCardStatusRequest",
+                "description": ""
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommonResultSetCardStatusResponse"
+                },
+                "example": {
+                  "success": false,
+                  "errorCode": "",
+                  "errorMessage": "",
+                  "errorMessageEn": "",
+                  "detailMessage": "",
+                  "requestId": "",
+                  "data": {
+                    "bizId": "",
+                    "status": ""
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
+      }
+    },
+    "/card/close": {
+      "post": {
+        "summary": "关卡",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CancelCardRequest",
+                "description": ""
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommonResultCancelCardResponse"
+                },
+                "example": {
+                  "success": false,
+                  "errorCode": "",
+                  "errorMessage": "",
+                  "errorMessageEn": "",
+                  "detailMessage": "",
+                  "requestId": "",
+                  "data": {
+                    "bizId": "",
+                    "status": ""
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
+      }
+    },
+    "/card/setLimit": {
+      "post": {
+        "summary": "设置限额",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SetLimitRequest",
+                "description": ""
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommonResultSetLimitResponse"
+                },
+                "example": {
+                  "success": false,
+                  "errorCode": "",
+                  "errorMessage": "",
+                  "errorMessageEn": "",
+                  "detailMessage": "",
+                  "requestId": "",
+                  "data": {
+                    "status": ""
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
+      }
+    },
+    "/card/setPINIframe": {
+      "post": {
+        "summary": "设置PIN",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SetPINIframeRequest",
+                "description": ""
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommonResultSetPINIframeResponse"
+                },
+                "example": {
+                  "success": false,
+                  "errorCode": "",
+                  "errorMessage": "",
+                  "errorMessageEn": "",
+                  "detailMessage": "",
+                  "requestId": "",
+                  "data": {
+                    "iframeUrl": ""
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
+      }
+    },
+    "/card/changePINIframe": {
+      "post": {
+        "summary": "修改PIN",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePINIframeRequest",
+                "description": ""
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommonResultChangePINIframeResponse"
+                },
+                "example": {
+                  "success": false,
+                  "errorCode": "",
+                  "errorMessage": "",
+                  "errorMessageEn": "",
+                  "detailMessage": "",
+                  "requestId": "",
+                  "data": {
+                    "iframeUrl": ""
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
+      }
+    },
+    "/card/resetPINIframe": {
+      "post": {
+        "summary": "重置PIN",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResetPINIframeRequest",
+                "description": ""
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommonResultResetPINIframeResponse"
+                },
+                "example": {
+                  "success": false,
+                  "errorCode": "",
+                  "errorMessage": "",
+                  "errorMessageEn": "",
+                  "detailMessage": "",
+                  "requestId": "",
+                  "data": {
+                    "iframeUrl": ""
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
+      }
+    },
+    "/card/printCard": {
+      "post": {
+        "summary": "打印实体卡",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PrintCardRequest",
+                "description": ""
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommonResultPrintCardResponse"
+                },
+                "example": {
+                  "success": false,
+                  "errorCode": "",
+                  "errorMessage": "",
+                  "errorMessageEn": "",
+                  "detailMessage": "",
+                  "requestId": "",
+                  "data": {
+                    "powerCardId": "",
+                    "status": ""
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
+      }
+    },
+    "/card/getPhysicalCardInfo": {
+      "post": {
+        "summary": "获取实体卡",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PhysicalCardInfoReqVO",
+                "description": ""
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommonResultPhysicalCardInfoResVO"
+                },
+                "example": {
+                  "success": false,
+                  "errorCode": "",
+                  "errorMessage": "",
+                  "errorMessageEn": "",
+                  "detailMessage": "",
+                  "requestId": "",
+                  "data": {
+                    "powerCardId": "",
+                    "physicalCardInfoId": 0,
+                    "merchantId": "",
+                    "merchantUserId": "",
+                    "channel": "",
+                    "country": "",
+                    "address1": "",
+                    "address2": "",
+                    "address3": "",
+                    "city": "",
+                    "postalCode": "",
+                    "recipientName": "",
+                    "contactMobile": "",
+                    "areaNo": "",
+                    "physicalCardStatus": ""
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
+      }
+    },
+    "/card/setPhoneNumber": {
+      "post": {
+        "summary": "设置手机号",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SetPhoneNumberReqVO",
+                "description": ""
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommonResultVoid"
+                },
+                "example": {
+                  "success": false,
+                  "errorCode": "",
+                  "errorMessage": "",
+                  "errorMessageEn": "",
+                  "detailMessage": "",
+                  "requestId": "",
+                  "data": null
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
+      }
+    },
+    "/card/setAddress": {
+      "post": {
+        "summary": "设置实体卡地址",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SetAddressReqVO",
+                "description": ""
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommonResultPhysicalCardInfoResVO"
+                },
+                "example": {
+                  "success": false,
+                  "errorCode": "",
+                  "errorMessage": "",
+                  "errorMessageEn": "",
+                  "detailMessage": "",
+                  "requestId": "",
+                  "data": {
+                    "powerCardId": "",
+                    "physicalCardInfoId": 0,
+                    "merchantId": "",
+                    "merchantUserId": "",
+                    "channel": "",
+                    "country": "",
+                    "address1": "",
+                    "address2": "",
+                    "address3": "",
+                    "city": "",
+                    "postalCode": "",
+                    "recipientName": "",
+                    "contactMobile": "",
+                    "areaNo": "",
+                    "physicalCardStatus": ""
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
+      }
+    },
+    "/card/activateCard": {
+      "post": {
+        "summary": "激活实体卡",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActivateCardReqVO",
+                "description": ""
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommonResultPhysicalCardInfoResVO"
+                },
+                "example": {
+                  "success": false,
+                  "errorCode": "",
+                  "errorMessage": "",
+                  "errorMessageEn": "",
+                  "detailMessage": "",
+                  "requestId": "",
+                  "data": {
+                    "powerCardId": "",
+                    "physicalCardInfoId": 0,
+                    "merchantId": "",
+                    "merchantUserId": "",
+                    "channel": "",
+                    "country": "",
+                    "address1": "",
+                    "address2": "",
+                    "address3": "",
+                    "city": "",
+                    "postalCode": "",
+                    "recipientName": "",
+                    "contactMobile": "",
+                    "areaNo": "",
+                    "physicalCardStatus": ""
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
+      }
+    },
+    "/card/getCardStatus": {
+      "post": {
+        "summary": "获取卡片状态",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetCardStatusReqVO",
+                "description": ""
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommonResultGetCardStatusResVO"
+                },
+                "example": {
+                  "success": false,
+                  "errorCode": "",
+                  "errorMessage": "",
+                  "errorMessageEn": "",
+                  "detailMessage": "",
+                  "requestId": "",
+                  "data": {
+                    "status": ""
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
+      }
+    },
+    "/user/create": {
+      "post": {
+        "summary": "创建用户",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserRequest",
+                "description": ""
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommonResultCreateUserResponse"
+                },
+                "example": {
+                  "success": false,
+                  "errorCode": "",
+                  "errorMessage": "",
+                  "errorMessageEn": "",
+                  "detailMessage": "",
+                  "requestId": "",
+                  "data": {
+                    "powerCardUserId": ""
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
+      }
+    },
+    "/user/query": {
+      "post": {
+        "summary": "查询用户",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryUserRequest",
+                "description": ""
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommonResultQueryUserResponse"
+                },
+                "example": {
+                  "success": false,
+                  "errorCode": "",
+                  "errorMessage": "",
+                  "errorMessageEn": "",
+                  "detailMessage": "",
+                  "requestId": "",
+                  "data": {
+                    "merchantId": "",
+                    "merchantUserId": "",
+                    "powerUserId": "",
+                    "channel": "",
+                    "customerName": "",
+                    "kycFullName": "",
+                    "firstName": "",
+                    "secondName": "",
+                    "lastName": "",
+                    "birth": "",
+                    "nationality": "",
+                    "region": "",
+                    "city": "",
+                    "street": "",
+                    "houseNumber": "",
+                    "postalCode": "",
+                    "email": "",
+                    "mobileNumber": "",
+                    "mobilePrefix": "",
+                    "createTime": 0,
+                    "updateTime": 0
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
+      }
+    },
+    "/merchant/balance": {
+      "post": {
+        "summary": "查询商户余额",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MerchantBalanceRequest",
+                "description": ""
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommonResultMerchantBalanceResponse"
+                },
+                "example": {
+                  "success": false,
+                  "errorCode": "",
+                  "errorMessage": "",
+                  "errorMessageEn": "",
+                  "detailMessage": "",
+                  "requestId": "",
+                  "data": {
+                    "availableAmount": 0,
+                    "currency": "",
+                    "frozenAmount": 0
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
+      }
+    },
+    "/merchant/recharge": {
+      "post": {
+        "summary": "充值",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MerchantRechargeRequest",
+                "description": ""
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommonResultMerchantRechargeResponse"
+                },
+                "example": {
+                  "success": false,
+                  "errorCode": "",
+                  "errorMessage": "",
+                  "errorMessageEn": "",
+                  "detailMessage": "",
+                  "requestId": "",
+                  "data": {
+                    "status": "",
+                    "merchantTransNo": "",
+                    "powerCardTransNo": ""
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
+      }
+    },
+    "/transaction/queryTransactions": {
+      "post": {
+        "summary": "查看交易信息",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryTransRequest",
+                "description": ""
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommonResultQueryTransResponse"
+                },
+                "example": {
+                  "success": false,
+                  "errorCode": "",
+                  "errorMessage": "",
+                  "errorMessageEn": "",
+                  "detailMessage": "",
+                  "requestId": "",
+                  "data": {
+                    "trans": [
+                      {
+                        "transNo": "",
+                        "settlementCurrency": "",
+                        "settlementAmount": 0,
+                        "transCurrency": "",
+                        "transAmount": 0,
+                        "handlingFee": 0,
+                        "handlingFeeCurrency": "",
+                        "transStatus": "",
+                        "remark": "",
+                        "transType": "",
+                        "transTime": 0,
+                        "merchantName": ""
+                      }
+                    ],
+                    "total": 0,
+                    "hasMore": false
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
+      }
+    },
+    "/transaction/queryBizStatus": {
+      "post": {
+        "summary": "查看业务状态",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryBizStatusRequest",
+                "description": ""
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommonResultQueryBizStatusResponse"
+                },
+                "example": {
+                  "success": false,
+                  "errorCode": "",
+                  "errorMessage": "",
+                  "errorMessageEn": "",
+                  "detailMessage": "",
+                  "requestId": "",
+                  "data": {
+                    "status": ""
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
+      }
+    },
+    "/transaction/queryOrder": {
+      "post": {
+        "summary": "查看订单状态",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryOrderRequest",
+                "description": ""
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommonResultQueryOrderResponse"
+                },
+                "example": {
+                  "success": false,
+                  "errorCode": "",
+                  "errorMessage": "",
+                  "errorMessageEn": "",
+                  "detailMessage": "",
+                  "requestId": "",
+                  "data": {
+                    "powerCardOrderNo": "",
+                    "status": ""
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
+      }
+    },
+    "/powercard/callbackExample": {
+      "post": {
+        "summary": "webhook参考",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MerchantNotifyRequest"
+              },
+              "examples": {}
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "const": "success"
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
+      }
+    }
+  },
+  "webhooks": {
+    "/powercard/callbackExample": {
+      "post": {
+        "summary": "webhook参考",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MerchantNotifyRequest"
+              },
+              "examples": {}
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "const": "success",
+                  "nullable": true
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "MerchantNotifyRequest": {
+        "type": "object",
+        "properties": {
+          "eventType": {
+            "type": "string",
+            "enum": [
+              "card_create",
+              "card_recharge",
+              "card_cancel",
+              "card_transaction",
+              "card_status",
+              "card_verify",
+              "card_adjustment"
+            ]
+          },
+          "data": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "eventType",
+          "data",
+          "key"
+        ]
+      },
+      "KYCTokenResponse": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "description": "token"
+          },
+          "powerCardUserId": {
+            "type": "string",
+            "description": "powerCard用户id"
+          }
+        },
+        "required": [
+          "token",
+          "powerCardUserId"
+        ]
+      },
+      "CommonResultKYCTokenResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": ""
+          },
+          "errorCode": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessageEn": {
+            "type": "string",
+            "description": ""
+          },
+          "detailMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "requestId": {
+            "type": "string",
+            "description": ""
+          },
+          "data": {
+            "$ref": "#/components/schemas/KYCTokenResponse",
+            "description": ""
+          }
+        }
+      },
+      "KYCTokenRequest": {
+        "type": "object",
+        "properties": {
+          "merchantId": {
+            "type": "string",
+            "description": "商户id"
+          },
+          "merchantUserId": {
+            "type": "string",
+            "description": "商户对应用户id"
+          },
+          "channel": {
+            "type": "string",
+            "description": "渠道"
+          }
+        },
+        "required": [
+          "merchantId",
+          "merchantUserId",
+          "channel"
+        ]
+      },
+      "KYCStatusRequest": {
+        "type": "object",
+        "properties": {
+          "merchantId": {
+            "type": "string",
+            "description": "商户id"
+          },
+          "merchantUserId": {
+            "type": "string",
+            "description": "商户对应用户id"
+          }
+        },
+        "required": [
+          "merchantId",
+          "merchantUserId"
+        ]
+      },
+      "KYCStatusResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "KYC状态（noKYC：尚未KYC，submitted：已提交，auditing：审批中，pass：KYC通过，fail：KYC失败，unknown：未知）"
+          }
+        }
+      },
+      "CommonResultKYCStatusResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": ""
+          },
+          "errorCode": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessageEn": {
+            "type": "string",
+            "description": ""
+          },
+          "detailMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "requestId": {
+            "type": "string",
+            "description": ""
+          },
+          "data": {
+            "$ref": "#/components/schemas/KYCStatusResponse",
+            "description": ""
+          }
+        }
+      },
+      "QueryCardConfigRequest": {
+        "type": "object",
+        "properties": {
+          "merchantId": {
+            "type": "string",
+            "description": "商户id"
+          },
+          "channel": {
+            "type": "string",
+            "description": "开卡渠道"
+          }
+        },
+        "required": [
+          "merchantId",
+          "channel"
+        ]
+      },
+      "CommonResultQueryCardConfigResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": ""
+          },
+          "errorCode": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessageEn": {
+            "type": "string",
+            "description": ""
+          },
+          "detailMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "requestId": {
+            "type": "string",
+            "description": ""
+          },
+          "data": {
+            "$ref": "#/components/schemas/QueryCardConfigResponse",
+            "description": ""
+          }
+        }
+      },
+      "QueryCardConfigResponse": {
+        "type": "object",
+        "properties": {
+          "cardConfigs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CardConfigVO",
+              "description": "具体开卡配置"
+            },
+            "description": "开卡配置"
+          }
+        }
+      },
+      "CardConfigVO": {
+        "type": "object",
+        "properties": {
+          "powerCardConfigId": {
+            "type": "string",
+            "description": "powerCard 卡配置id"
+          },
+          "applyDiscount": {
+            "type": "number",
+            "description": "开卡折扣"
+          },
+          "applyFee": {
+            "type": "number",
+            "description": "开卡费用"
+          },
+          "cardNature": {
+            "type": "string",
+            "description": "卡片性质"
+          },
+          "cardType": {
+            "type": "string",
+            "description": "卡片类型"
+          },
+          "currency": {
+            "type": "string",
+            "description": "货币"
+          },
+          "description": {
+            "type": "string",
+            "description": "描述字段"
+          },
+          "enable": {
+            "type": "boolean",
+            "description": "是否允许申请"
+          },
+          "img": {
+            "type": "string",
+            "description": "图片"
+          },
+          "monthFee": {
+            "type": "number",
+            "description": "卡片月费"
+          },
+          "rechargeFee": {
+            "type": "number",
+            "description": "充值手续费，从商户账户扣除"
+          },
+          "refundFee": {
+            "type": "number",
+            "description": "退卡费用"
+          },
+          "title": {
+            "type": "string",
+            "description": "卡片名称"
+          },
+          "titleEn": {
+            "type": "string",
+            "description": "卡片英文名称"
+          },
+          "activeMinLimit": {
+            "type": "number",
+            "description": "激活/首次充值最小额度"
+          },
+          "rechargeMinLimit": {
+            "type": "number",
+            "description": "非首次充值最小额度"
+          },
+          "rechargeMaxLimit": {
+            "type": "number",
+            "description": "非首次充值最大额度"
+          },
+          "pwRechargeFee": {
+            "type": "number",
+            "description": "新增字段\npw充值手续费"
+          },
+          "pwTransFee": {
+            "type": "number",
+            "description": "pw交易手续费"
+          },
+          "pwCloseFee": {
+            "type": "number",
+            "description": "pw销卡手续费"
+          },
+          "pwRechargeFeeType": {
+            "type": "string",
+            "description": "pw充值手续费类型"
+          },
+          "pwTransFeeType": {
+            "type": "string",
+            "description": "pw交易手续费类型"
+          },
+          "pwCloseFeeType": {
+            "type": "string",
+            "description": "pw销卡手续费类型"
+          },
+          "needKYC": {
+            "type": "boolean",
+            "description": "是否需要实名"
+          },
+          "physicalCardAvailable": {
+            "type": "boolean",
+            "description": "实体卡是否可用"
+          },
+          "needPIN": {
+            "type": "boolean",
+            "description": "是否需要设置PIN"
+          },
+          "needMobile": {
+            "type": "boolean",
+            "description": "是否需要设置手机号"
+          },
+          "issuingBank": {
+            "type": "string",
+            "description": "发卡银行"
+          },
+          "channel": {
+            "type": "string",
+            "description": "渠道"
+          },
+          "physicalCardCreateFee": {
+            "type": "number",
+            "description": "实体卡制卡费"
+          },
+          "googlePayAvailable": {
+            "type": "boolean",
+            "description": "是否支持googlePay"
+          },
+          "applePayAvailable": {
+            "type": "boolean",
+            "description": "是否支持applePay"
+          }
+        }
+      },
+      "CreateCardRequest": {
+        "type": "object",
+        "properties": {
+          "merchantId": {
+            "type": "string",
+            "description": "商户id"
+          },
+          "merchantUserId": {
+            "type": "string",
+            "description": "商户侧用户id"
+          },
+          "powerCardConfigId": {
+            "type": "string",
+            "description": "powerCard开卡配置id"
+          },
+          "channel": {
+            "type": "string",
+            "description": "开卡渠道"
+          },
+          "activeSerialNo": {
+            "type": "string",
+            "description": "商户开卡序列号"
+          },
+          "email": {
+            "type": "string",
+            "description": "电子邮箱"
+          },
+          "mobileNumber": {
+            "type": "string",
+            "description": "手机号码"
+          },
+          "mobilePrefix": {
+            "type": "string",
+            "description": "手机号国家码"
+          }
+        },
+        "required": [
+          "merchantId",
+          "merchantUserId",
+          "powerCardConfigId",
+          "channel",
+          "activeSerialNo"
+        ]
+      },
+      "CommonResultCreateCardResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": ""
+          },
+          "errorCode": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessageEn": {
+            "type": "string",
+            "description": ""
+          },
+          "detailMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "requestId": {
+            "type": "string",
+            "description": ""
+          },
+          "data": {
+            "$ref": "#/components/schemas/CreateCardResponse",
+            "description": ""
+          }
+        }
+      },
+      "CreateCardResponse": {
+        "type": "object",
+        "properties": {
+          "powerCardId": {
+            "type": "string",
+            "description": "powerCard 卡片id"
+          },
+          "status": {
+            "type": "string",
+            "description": "开卡状态（pending：处理中，success：成功，failed：失败）"
+          }
+        }
+      },
+      "RechargeCardRequest": {
+        "type": "object",
+        "properties": {
+          "merchantId": {
+            "type": "string",
+            "description": "商户id"
+          },
+          "merchantUserId": {
+            "type": "string",
+            "description": "商户侧用户id"
+          },
+          "powerCardId": {
+            "type": "string",
+            "description": "powerCard卡片id"
+          },
+          "channel": {
+            "type": "string",
+            "description": "开卡渠道"
+          },
+          "rechargeAmount": {
+            "type": "number",
+            "description": "充值金额",
+            "minimum": 0,
+            "exclusiveMinimum": 0
+          },
+          "activeRecharge": {
+            "type": "boolean",
+            "description": "激活充值"
+          },
+          "merchantOrderNo": {
+            "type": "string",
+            "description": "商户充值订单号"
+          }
+        },
+        "required": [
+          "merchantId",
+          "merchantUserId",
+          "powerCardId",
+          "channel",
+          "rechargeAmount",
+          "activeRecharge",
+          "merchantOrderNo"
+        ]
+      },
+      "CommonResultRechargeCardResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": ""
+          },
+          "errorCode": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessageEn": {
+            "type": "string",
+            "description": ""
+          },
+          "detailMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "requestId": {
+            "type": "string",
+            "description": ""
+          },
+          "data": {
+            "$ref": "#/components/schemas/RechargeCardResponse",
+            "description": ""
+          }
+        }
+      },
+      "RechargeCardResponse": {
+        "type": "object",
+        "properties": {
+          "bizId": {
+            "type": "string",
+            "description": "业务流水id"
+          },
+          "status": {
+            "type": "string",
+            "description": "状态（accept：已接收，success：成功，failed：失败，pending：处理中，approved：同意，refunding：退款中，refunded：已退款，activating：卡片激活中，retry：重试，unknown：未知）\n"
+          }
+        }
+      },
+      "QueryBalanceRequest": {
+        "type": "object",
+        "properties": {
+          "merchantId": {
+            "type": "string",
+            "description": "商户id"
+          },
+          "merchantUserId": {
+            "type": "string",
+            "description": "商户侧用户id"
+          },
+          "powerCardId": {
+            "type": "string",
+            "description": "powerCard卡片id"
+          },
+          "channel": {
+            "type": "string",
+            "description": "开卡渠道"
+          }
+        },
+        "required": [
+          "merchantId",
+          "merchantUserId",
+          "powerCardId",
+          "channel"
+        ]
+      },
+      "CommonResultQueryBalanceResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": ""
+          },
+          "errorCode": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessageEn": {
+            "type": "string",
+            "description": ""
+          },
+          "detailMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "requestId": {
+            "type": "string",
+            "description": ""
+          },
+          "data": {
+            "$ref": "#/components/schemas/QueryBalanceResponse",
+            "description": ""
+          }
+        }
+      },
+      "QueryBalanceResponse": {
+        "type": "object",
+        "properties": {
+          "balance": {
+            "type": "number",
+            "description": "余额"
+          },
+          "currency": {
+            "type": "string",
+            "description": "币种"
+          }
+        }
+      },
+      "QueryCardInfoRequest": {
+        "type": "object",
+        "properties": {
+          "merchantId": {
+            "type": "string",
+            "description": "商户id"
+          },
+          "merchantUserId": {
+            "type": "string",
+            "description": "商户侧用户id"
+          },
+          "powerCardId": {
+            "type": "string",
+            "description": "powerCard卡片id"
+          },
+          "channel": {
+            "type": "string",
+            "description": "开卡渠道"
+          }
+        },
+        "required": [
+          "merchantId",
+          "merchantUserId",
+          "powerCardId",
+          "channel"
+        ]
+      },
+      "CommonResultQueryCardInfoResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": ""
+          },
+          "errorCode": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessageEn": {
+            "type": "string",
+            "description": ""
+          },
+          "detailMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "requestId": {
+            "type": "string",
+            "description": ""
+          },
+          "data": {
+            "$ref": "#/components/schemas/QueryCardInfoResponse",
+            "description": ""
+          }
+        }
+      },
+      "QueryCardInfoResponse": {
+        "type": "object",
+        "properties": {
+          "powerCardId": {
+            "type": "string",
+            "description": "powerCard卡片id"
+          },
+          "cvv2": {
+            "type": "string",
+            "description": "卡cvv2安全码"
+          },
+          "currency": {
+            "type": "string",
+            "description": "币种"
+          },
+          "expireDate": {
+            "type": "string",
+            "description": "有效期"
+          },
+          "monthFee": {
+            "type": "number",
+            "description": "月费"
+          },
+          "rechargeFee": {
+            "type": "number",
+            "description": "充值手续费"
+          },
+          "status": {
+            "type": "string",
+            "description": "状态（auditing：审批中，auditPass：审批通过，tba：待激活，activating：激活中，active：已激活，closing：关卡中，close：卡片已关闭，frozen：卡片已冻结，unknown：未知）"
+          },
+          "channelCardNo": {
+            "type": "string",
+            "description": "渠道侧卡号"
+          },
+          "setPIN": {
+            "type": "boolean",
+            "description": "是否已设置PIN"
+          },
+          "physicalCardInfoId": {
+            "type": "integer",
+            "description": "实体卡关联id"
+          },
+          "kycStatus": {
+            "type": "string",
+            "description": "KYC状态"
+          }
+        }
+      },
+      "SetCardStatusRequest": {
+        "type": "object",
+        "properties": {
+          "merchantId": {
+            "type": "string",
+            "description": "商户id"
+          },
+          "merchantUserId": {
+            "type": "string",
+            "description": "商户侧用户id"
+          },
+          "powerCardId": {
+            "type": "string",
+            "description": "powerCard卡片id"
+          },
+          "channel": {
+            "type": "string",
+            "description": "开卡渠道"
+          },
+          "bizType": {
+            "type": "string",
+            "description": "业务类型（suspend：锁定，unsuspend：解除锁定）"
+          }
+        },
+        "required": [
+          "merchantId",
+          "merchantUserId",
+          "powerCardId",
+          "channel",
+          "bizType"
+        ]
+      },
+      "CommonResultSetCardStatusResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": ""
+          },
+          "errorCode": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessageEn": {
+            "type": "string",
+            "description": ""
+          },
+          "detailMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "requestId": {
+            "type": "string",
+            "description": ""
+          },
+          "data": {
+            "$ref": "#/components/schemas/SetCardStatusResponse",
+            "description": ""
+          }
+        }
+      },
+      "SetCardStatusResponse": {
+        "type": "object",
+        "properties": {
+          "bizId": {
+            "type": "string",
+            "description": "业务流水id"
+          },
+          "status": {
+            "type": "string",
+            "description": "状态（auditing：审批中，auditPass：审批通过，tba：待激活，activating：激活中，active：已激活，closing：关卡中，close：卡片已关闭，frozen：卡片已冻结，unknown：未知）"
+          }
+        }
+      },
+      "CancelCardRequest": {
+        "type": "object",
+        "properties": {
+          "merchantId": {
+            "type": "string",
+            "description": "商户id"
+          },
+          "merchantUserId": {
+            "type": "string",
+            "description": "商户侧用户id"
+          },
+          "powerCardId": {
+            "type": "string",
+            "description": "powerCard卡片id"
+          },
+          "channel": {
+            "type": "string",
+            "description": "开卡渠道"
+          },
+          "closeSerialNo": {
+            "type": "string",
+            "description": "商户关卡序列号"
+          }
+        },
+        "required": [
+          "merchantId",
+          "merchantUserId",
+          "powerCardId",
+          "channel",
+          "closeSerialNo"
+        ]
+      },
+      "CommonResultCancelCardResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": ""
+          },
+          "errorCode": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessageEn": {
+            "type": "string",
+            "description": ""
+          },
+          "detailMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "requestId": {
+            "type": "string",
+            "description": ""
+          },
+          "data": {
+            "$ref": "#/components/schemas/CancelCardResponse",
+            "description": ""
+          }
+        }
+      },
+      "CancelCardResponse": {
+        "type": "object",
+        "properties": {
+          "bizId": {
+            "type": "string",
+            "description": "业务流水id"
+          },
+          "status": {
+            "type": "string",
+            "description": "状态（success：成功，failed：失败，pending：处理中）"
+          }
+        }
+      },
+      "SetLimitRequest": {
+        "type": "object",
+        "properties": {
+          "merchantId": {
+            "type": "string",
+            "description": "商户id"
+          },
+          "merchantUserId": {
+            "type": "string",
+            "description": "商户侧用户id"
+          },
+          "powerCardId": {
+            "type": "string",
+            "description": "powerCard卡片id"
+          },
+          "channel": {
+            "type": "string",
+            "description": "开卡渠道"
+          },
+          "limitAmount": {
+            "type": "number",
+            "description": "限额",
+            "minimum": 0,
+            "exclusiveMinimum": 0
+          }
+        },
+        "required": [
+          "merchantId",
+          "merchantUserId",
+          "powerCardId",
+          "channel",
+          "limitAmount"
+        ]
+      },
+      "CommonResultSetLimitResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": ""
+          },
+          "errorCode": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessageEn": {
+            "type": "string",
+            "description": ""
+          },
+          "detailMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "requestId": {
+            "type": "string",
+            "description": ""
+          },
+          "data": {
+            "$ref": "#/components/schemas/SetLimitResponse",
+            "description": ""
+          }
+        }
+      },
+      "SetLimitResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "状态"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "SetPINIframeRequest": {
+        "type": "object",
+        "properties": {
+          "channel": {
+            "type": "string",
+            "description": "渠道"
+          },
+          "merchantUserId": {
+            "type": "string",
+            "description": "商户用户id"
+          },
+          "merchantId": {
+            "type": "string",
+            "description": "商户id"
+          },
+          "powerCardId": {
+            "type": "string",
+            "description": "powerCardId"
+          }
+        },
+        "required": [
+          "channel",
+          "merchantUserId",
+          "merchantId",
+          "powerCardId"
+        ]
+      },
+      "CommonResultSetPINIframeResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": ""
+          },
+          "errorCode": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessageEn": {
+            "type": "string",
+            "description": ""
+          },
+          "detailMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "requestId": {
+            "type": "string",
+            "description": ""
+          },
+          "data": {
+            "$ref": "#/components/schemas/SetPINIframeResponse",
+            "description": ""
+          }
+        }
+      },
+      "SetPINIframeResponse": {
+        "type": "object",
+        "properties": {
+          "iframeUrl": {
+            "type": "string",
+            "description": "模板url"
+          }
+        },
+        "required": [
+          "iframeUrl"
+        ]
+      },
+      "ChangePINIframeRequest": {
+        "type": "object",
+        "properties": {
+          "channel": {
+            "type": "string",
+            "description": "渠道"
+          },
+          "merchantUserId": {
+            "type": "string",
+            "description": "商户用户id"
+          },
+          "merchantId": {
+            "type": "string",
+            "description": "商户id"
+          },
+          "powerCardId": {
+            "type": "string",
+            "description": "powerCardId"
+          }
+        },
+        "required": [
+          "channel",
+          "merchantUserId",
+          "merchantId",
+          "powerCardId"
+        ]
+      },
+      "CommonResultChangePINIframeResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": ""
+          },
+          "errorCode": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessageEn": {
+            "type": "string",
+            "description": ""
+          },
+          "detailMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "requestId": {
+            "type": "string",
+            "description": ""
+          },
+          "data": {
+            "$ref": "#/components/schemas/ChangePINIframeResponse",
+            "description": ""
+          }
+        }
+      },
+      "ChangePINIframeResponse": {
+        "type": "object",
+        "properties": {
+          "iframeUrl": {
+            "type": "string",
+            "description": "模板url"
+          }
+        },
+        "required": [
+          "iframeUrl"
+        ]
+      },
+      "ResetPINIframeRequest": {
+        "type": "object",
+        "properties": {
+          "channel": {
+            "type": "string",
+            "description": "渠道"
+          },
+          "merchantUserId": {
+            "type": "string",
+            "description": "商户用户id"
+          },
+          "merchantId": {
+            "type": "string",
+            "description": "商户id"
+          },
+          "powerCardId": {
+            "type": "string",
+            "description": "powerCardId"
+          }
+        },
+        "required": [
+          "channel",
+          "merchantUserId",
+          "merchantId",
+          "powerCardId"
+        ]
+      },
+      "CommonResultResetPINIframeResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": ""
+          },
+          "errorCode": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessageEn": {
+            "type": "string",
+            "description": ""
+          },
+          "detailMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "requestId": {
+            "type": "string",
+            "description": ""
+          },
+          "data": {
+            "$ref": "#/components/schemas/ResetPINIframeResponse",
+            "description": ""
+          }
+        }
+      },
+      "ResetPINIframeResponse": {
+        "type": "object",
+        "properties": {
+          "iframeUrl": {
+            "type": "string",
+            "description": "模板url"
+          }
+        },
+        "required": [
+          "iframeUrl"
+        ]
+      },
+      "PrintCardRequest": {
+        "type": "object",
+        "properties": {
+          "channel": {
+            "type": "string",
+            "description": "渠道"
+          },
+          "merchantUserId": {
+            "type": "string",
+            "description": "商户用户id"
+          },
+          "merchantId": {
+            "type": "string",
+            "description": "商户id"
+          },
+          "powerCardId": {
+            "type": "string",
+            "description": "powerCardId"
+          }
+        },
+        "required": [
+          "channel",
+          "merchantUserId",
+          "merchantId",
+          "powerCardId"
+        ]
+      },
+      "CommonResultPrintCardResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": ""
+          },
+          "errorCode": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessageEn": {
+            "type": "string",
+            "description": ""
+          },
+          "detailMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "requestId": {
+            "type": "string",
+            "description": ""
+          },
+          "data": {
+            "$ref": "#/components/schemas/PrintCardResponse",
+            "description": ""
+          }
+        }
+      },
+      "PrintCardResponse": {
+        "type": "object",
+        "properties": {
+          "powerCardId": {
+            "type": "string",
+            "description": "powerCardId"
+          },
+          "status": {
+            "type": "string",
+            "description": "实体卡片状态（printing：印制中，inTransit：运输中，delivered：已送达，activated：已激活，unknown：未知）\n"
+          }
+        },
+        "required": [
+          "powerCardId",
+          "status"
+        ]
+      },
+      "PhysicalCardInfoReqVO": {
+        "type": "object",
+        "properties": {
+          "powerCardId": {
+            "type": "string",
+            "description": "powerCardId"
+          }
+        },
+        "required": [
+          "powerCardId"
+        ]
+      },
+      "CommonResultPhysicalCardInfoResVO": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": ""
+          },
+          "errorCode": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessageEn": {
+            "type": "string",
+            "description": ""
+          },
+          "detailMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "requestId": {
+            "type": "string",
+            "description": ""
+          },
+          "data": {
+            "$ref": "#/components/schemas/PhysicalCardInfoResVO",
+            "description": ""
+          }
+        }
+      },
+      "PhysicalCardInfoResVO": {
+        "type": "object",
+        "properties": {
+          "powerCardId": {
+            "type": "string",
+            "description": "powerCardId"
+          },
+          "physicalCardInfoId": {
+            "type": "integer",
+            "description": "实体卡关联id"
+          },
+          "merchantId": {
+            "type": "string",
+            "description": "商户id"
+          },
+          "merchantUserId": {
+            "type": "string",
+            "description": "商户对应用户id"
+          },
+          "channel": {
+            "type": "string",
+            "description": "开卡渠道"
+          },
+          "country": {
+            "type": "string",
+            "description": "国家或地区"
+          },
+          "address1": {
+            "type": "string",
+            "description": "地址行1"
+          },
+          "address2": {
+            "type": "string",
+            "description": "地址行2"
+          },
+          "address3": {
+            "type": "string",
+            "description": "地址行3"
+          },
+          "city": {
+            "type": "string",
+            "description": "城市"
+          },
+          "postalCode": {
+            "type": "string",
+            "description": "邮政编码"
+          },
+          "recipientName": {
+            "type": "string",
+            "description": "收件人"
+          },
+          "contactMobile": {
+            "type": "string",
+            "description": "收件手机号码"
+          },
+          "areaNo": {
+            "type": "string",
+            "description": "收件手机区号"
+          },
+          "physicalCardStatus": {
+            "type": "string",
+            "description": "实体卡片状态（printing：印制中，inTransit：运输中，delivered：已送达，activated：已激活，unknown：未知）\n"
+          }
+        },
+        "required": [
+          "merchantId",
+          "merchantUserId",
+          "channel",
+          "country",
+          "address1",
+          "city",
+          "postalCode",
+          "recipientName",
+          "contactMobile",
+          "areaNo",
+          "physicalCardStatus"
+        ]
+      },
+      "SetPhoneNumberReqVO": {
+        "type": "object",
+        "properties": {
+          "powerCardId": {
+            "type": "string",
+            "description": "powerCardId"
+          },
+          "areaNo": {
+            "type": "string",
+            "description": "区号"
+          },
+          "mobile": {
+            "type": "string",
+            "description": "手机号"
+          }
+        },
+        "required": [
+          "powerCardId",
+          "areaNo",
+          "mobile"
+        ]
+      },
+      "CommonResultVoid": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": ""
+          },
+          "errorCode": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessageEn": {
+            "type": "string",
+            "description": ""
+          },
+          "detailMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "requestId": {
+            "type": "string",
+            "description": ""
+          },
+          "data": {
+            "description": "",
+            "type": "null"
+          }
+        }
+      },
+      "SetAddressReqVO": {
+        "type": "object",
+        "properties": {
+          "powerCardId": {
+            "type": "string",
+            "description": "powerCardId"
+          },
+          "country": {
+            "type": "string",
+            "description": "国家或地区"
+          },
+          "address1": {
+            "type": "string",
+            "description": "地址行1"
+          },
+          "address2": {
+            "type": "string",
+            "description": "地址行2"
+          },
+          "address3": {
+            "type": "string",
+            "description": "地址行3"
+          },
+          "city": {
+            "type": "string",
+            "description": "城市"
+          },
+          "postalCode": {
+            "type": "string",
+            "description": "邮政编码"
+          },
+          "recipientName": {
+            "type": "string",
+            "description": "收件人"
+          },
+          "contactMobile": {
+            "type": "string",
+            "description": "收件手机号码"
+          },
+          "areaNo": {
+            "type": "string",
+            "description": "收件手机区号"
+          }
+        },
+        "required": [
+          "powerCardId",
+          "country",
+          "address1",
+          "city",
+          "postalCode",
+          "recipientName",
+          "contactMobile",
+          "areaNo"
+        ]
+      },
+      "ActivateCardReqVO": {
+        "type": "object",
+        "properties": {
+          "powerCardId": {
+            "type": "string",
+            "description": "powerCardId"
+          }
+        },
+        "required": [
+          "powerCardId"
+        ]
+      },
+      "GetCardStatusReqVO": {
+        "type": "object",
+        "properties": {
+          "powerCardId": {
+            "type": "string",
+            "description": "powerCardId"
+          }
+        },
+        "required": [
+          "powerCardId"
+        ]
+      },
+      "CommonResultGetCardStatusResVO": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": ""
+          },
+          "errorCode": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessageEn": {
+            "type": "string",
+            "description": ""
+          },
+          "detailMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "requestId": {
+            "type": "string",
+            "description": ""
+          },
+          "data": {
+            "$ref": "#/components/schemas/GetCardStatusResVO",
+            "description": ""
+          }
+        }
+      },
+      "GetCardStatusResVO": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "卡片状态（auditing：审批中，auditPass：审批通过，tba：待激活，activating：激活中，active：已激活，closing：关卡中，close：卡片已关闭，frozen：卡片已冻结，unknown：未知）"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "CreateUserRequest": {
+        "type": "object",
+        "properties": {
+          "merchantId": {
+            "type": "string",
+            "description": "商户id"
+          },
+          "merchantUserId": {
+            "type": "string",
+            "description": "商户对应用户id"
+          },
+          "channel": {
+            "type": "string",
+            "description": "开卡渠道"
+          },
+          "email": {
+            "type": "string",
+            "description": "电子邮箱",
+            "format": "email"
+          },
+          "mobileNumber": {
+            "type": "string",
+            "description": "手机号码"
+          },
+          "mobilePrefix": {
+            "type": "string",
+            "description": "手机号国家码"
+          }
+        },
+        "required": [
+          "merchantId",
+          "merchantUserId",
+          "channel"
+        ]
+      },
+      "CommonResultCreateUserResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": ""
+          },
+          "errorCode": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessageEn": {
+            "type": "string",
+            "description": ""
+          },
+          "detailMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "requestId": {
+            "type": "string",
+            "description": ""
+          },
+          "data": {
+            "$ref": "#/components/schemas/CreateUserResponse",
+            "description": ""
+          }
+        }
+      },
+      "CreateUserResponse": {
+        "type": "object",
+        "properties": {
+          "powerCardUserId": {
+            "type": "string",
+            "description": "powerCard 用户id"
+          }
+        }
+      },
+      "QueryUserRequest": {
+        "type": "object",
+        "properties": {
+          "merchantId": {
+            "type": "string",
+            "description": "商户id"
+          },
+          "merchantUserId": {
+            "type": "string",
+            "description": "商户对应用户id"
+          },
+          "channel": {
+            "type": "string",
+            "description": "开卡渠道"
+          }
+        },
+        "required": [
+          "merchantId",
+          "merchantUserId",
+          "channel"
+        ]
+      },
+      "CommonResultQueryUserResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": ""
+          },
+          "errorCode": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessageEn": {
+            "type": "string",
+            "description": ""
+          },
+          "detailMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "requestId": {
+            "type": "string",
+            "description": ""
+          },
+          "data": {
+            "$ref": "#/components/schemas/QueryUserResponse",
+            "description": ""
+          }
+        }
+      },
+      "QueryUserResponse": {
+        "type": "object",
+        "properties": {
+          "merchantId": {
+            "type": "string",
+            "description": "商户id"
+          },
+          "merchantUserId": {
+            "type": "string",
+            "description": "商户侧用户id"
+          },
+          "powerUserId": {
+            "type": "string",
+            "description": "powerCard用户id"
+          },
+          "channel": {
+            "type": "string",
+            "description": "渠道"
+          },
+          "customerName": {
+            "type": "string",
+            "description": "用户名"
+          },
+          "kycFullName": {
+            "type": "string",
+            "description": "kyc认证完整用户名"
+          },
+          "firstName": {
+            "type": "string",
+            "description": "名"
+          },
+          "secondName": {
+            "type": "string",
+            "description": "中间名"
+          },
+          "lastName": {
+            "type": "string",
+            "description": "姓"
+          },
+          "birth": {
+            "type": "string",
+            "description": "生日"
+          },
+          "nationality": {
+            "type": "string",
+            "description": "国籍"
+          },
+          "region": {
+            "type": "string",
+            "description": "地区"
+          },
+          "city": {
+            "type": "string",
+            "description": "城市"
+          },
+          "street": {
+            "type": "string",
+            "description": "街道"
+          },
+          "houseNumber": {
+            "type": "string",
+            "description": "门牌号"
+          },
+          "postalCode": {
+            "type": "string",
+            "description": "邮政编码"
+          },
+          "email": {
+            "type": "string",
+            "description": "电子邮箱"
+          },
+          "mobileNumber": {
+            "type": "string",
+            "description": "手机号"
+          },
+          "mobilePrefix": {
+            "type": "string",
+            "description": "手机号国家码"
+          },
+          "createTime": {
+            "type": "integer",
+            "description": "创建时间"
+          },
+          "updateTime": {
+            "type": "integer",
+            "description": "商户id"
+          }
+        }
+      },
+      "MerchantBalanceRequest": {
+        "type": "object",
+        "properties": {
+          "merchantId": {
+            "type": "string",
+            "description": "商户id"
+          },
+          "channel": {
+            "type": "string",
+            "description": "渠道"
+          }
+        },
+        "required": [
+          "merchantId",
+          "channel"
+        ]
+      },
+      "CommonResultMerchantBalanceResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": ""
+          },
+          "errorCode": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessageEn": {
+            "type": "string",
+            "description": ""
+          },
+          "detailMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "requestId": {
+            "type": "string",
+            "description": ""
+          },
+          "data": {
+            "$ref": "#/components/schemas/MerchantBalanceResponse",
+            "description": ""
+          }
+        }
+      },
+      "MerchantBalanceResponse": {
+        "type": "object",
+        "properties": {
+          "availableAmount": {
+            "type": "number",
+            "description": "可用余额"
+          },
+          "currency": {
+            "type": "string",
+            "description": "币种"
+          },
+          "frozenAmount": {
+            "type": "number",
+            "description": "已冻结余额"
+          }
+        },
+        "required": [
+          "availableAmount",
+          "currency",
+          "frozenAmount"
+        ]
+      },
+      "MerchantRechargeRequest": {
+        "type": "object",
+        "properties": {
+          "merchantId": {
+            "type": "string",
+            "description": "商户id"
+          },
+          "channel": {
+            "type": "string",
+            "description": "开卡渠道"
+          },
+          "powerCardId": {
+            "type": "string",
+            "description": "powerCard卡号id"
+          },
+          "rechargeAmount": {
+            "type": "number",
+            "description": "充值金额",
+            "minimum": 0.01,
+            "exclusiveMinimum": 0.01
+          },
+          "currency": {
+            "type": "string",
+            "description": "币种"
+          },
+          "merchantTransNo": {
+            "type": "string",
+            "description": "商户订单号"
+          }
+        },
+        "required": [
+          "merchantId",
+          "channel",
+          "powerCardId",
+          "rechargeAmount",
+          "currency",
+          "merchantTransNo"
+        ]
+      },
+      "CommonResultMerchantRechargeResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": ""
+          },
+          "errorCode": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessageEn": {
+            "type": "string",
+            "description": ""
+          },
+          "detailMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "requestId": {
+            "type": "string",
+            "description": ""
+          },
+          "data": {
+            "$ref": "#/components/schemas/MerchantRechargeResponse",
+            "description": ""
+          }
+        }
+      },
+      "MerchantRechargeResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "状态"
+          },
+          "merchantTransNo": {
+            "type": "string",
+            "description": "商户订单号"
+          },
+          "powerCardTransNo": {
+            "type": "string",
+            "description": "powerCard订单号"
+          }
+        },
+        "required": [
+          "status",
+          "merchantTransNo",
+          "powerCardTransNo"
+        ]
+      },
+      "QueryTransRequest": {
+        "type": "object",
+        "properties": {
+          "merchantId": {
+            "type": "string",
+            "description": "商户id"
+          },
+          "merchantUserId": {
+            "type": "string",
+            "description": "商户侧用户id"
+          },
+          "powerCardId": {
+            "type": "string",
+            "description": "powerCard卡片id"
+          },
+          "channel": {
+            "type": "string",
+            "description": "开卡渠道"
+          },
+          "pageNum": {
+            "type": "integer",
+            "description": "页码",
+            "minimum": 0,
+            "exclusiveMinimum": 0
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "每页数量",
+            "minimum": 1,
+            "exclusiveMinimum": 1
+          },
+          "startTimeStamp": {
+            "type": "integer",
+            "description": "查询起始时间",
+            "format": "int64"
+          },
+          "endTimeStamp": {
+            "type": "integer",
+            "description": "查询结束时间",
+            "format": "int64"
+          }
+        },
+        "required": [
+          "merchantId",
+          "merchantUserId",
+          "powerCardId",
+          "channel",
+          "pageNum",
+          "pageSize"
+        ]
+      },
+      "CommonResultQueryTransResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": ""
+          },
+          "errorCode": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessageEn": {
+            "type": "string",
+            "description": ""
+          },
+          "detailMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "requestId": {
+            "type": "string",
+            "description": ""
+          },
+          "data": {
+            "$ref": "#/components/schemas/QueryTransResponse",
+            "description": ""
+          }
+        }
+      },
+      "QueryTransResponse": {
+        "type": "object",
+        "properties": {
+          "trans": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TransactionRecordVO",
+              "description": "具体交易记录"
+            },
+            "description": "交易记录"
+          },
+          "total": {
+            "type": "integer",
+            "description": "总记录数",
+            "format": "int64"
+          },
+          "hasMore": {
+            "type": "boolean",
+            "description": "是否还有更多记录"
+          }
+        }
+      },
+      "TransactionRecordVO": {
+        "type": "object",
+        "properties": {
+          "transNo": {
+            "type": "string",
+            "description": "powerCard交易订单号"
+          },
+          "settlementCurrency": {
+            "type": "string",
+            "description": "结算币种"
+          },
+          "settlementAmount": {
+            "type": "number",
+            "description": "结算金额"
+          },
+          "transCurrency": {
+            "type": "string",
+            "description": "交易币种"
+          },
+          "transAmount": {
+            "type": "number",
+            "description": "交易金额"
+          },
+          "handlingFee": {
+            "type": "number",
+            "description": "手续费"
+          },
+          "handlingFeeCurrency": {
+            "type": "string",
+            "description": "手续费币种"
+          },
+          "transStatus": {
+            "type": "string",
+            "description": "交易状态（approved：同意，failed：失败，pending：处理中）"
+          },
+          "remark": {
+            "type": "string",
+            "description": "备注"
+          },
+          "transType": {
+            "type": "string",
+            "description": "交易类型（purchase：购买，atm：取现，refund：退款，handling_fee：手续费，auth_fee：授权费，oct：转账，reversal：撤销，partial_refund：部分退款，partial_reversal：部分撤销，hold：预扣，hold_refund：预扣退款，unknown：未知）"
+          },
+          "transTime": {
+            "type": "integer",
+            "description": "交易时间"
+          },
+          "merchantName": {
+            "type": "string",
+            "description": "商家名称"
+          }
+        }
+      },
+      "QueryBizStatusRequest": {
+        "type": "object",
+        "properties": {
+          "merchantId": {
+            "type": "string",
+            "description": "商户id"
+          },
+          "powerCardId": {
+            "type": "string",
+            "description": "powerCard卡片id"
+          },
+          "channel": {
+            "type": "string",
+            "description": "开卡渠道"
+          },
+          "bizId": {
+            "type": "string",
+            "description": "业务流水id"
+          }
+        },
+        "required": [
+          "merchantId",
+          "powerCardId",
+          "channel",
+          "bizId"
+        ]
+      },
+      "CommonResultQueryBizStatusResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": ""
+          },
+          "errorCode": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessageEn": {
+            "type": "string",
+            "description": ""
+          },
+          "detailMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "requestId": {
+            "type": "string",
+            "description": ""
+          },
+          "data": {
+            "$ref": "#/components/schemas/QueryBizStatusResponse",
+            "description": ""
+          }
+        }
+      },
+      "QueryBizStatusResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "业务状态"
+          }
+        }
+      },
+      "QueryOrderRequest": {
+        "type": "object",
+        "properties": {
+          "merchantId": {
+            "type": "string",
+            "description": "商户id"
+          },
+          "powerCardId": {
+            "type": "string",
+            "description": "powerCard卡片id"
+          },
+          "channel": {
+            "type": "string",
+            "description": "开卡渠道"
+          },
+          "merchantOrderNo": {
+            "type": "string",
+            "description": "商户订单号"
+          }
+        },
+        "required": [
+          "merchantId",
+          "powerCardId",
+          "channel",
+          "merchantOrderNo"
+        ]
+      },
+      "CommonResultQueryOrderResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": ""
+          },
+          "errorCode": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessageEn": {
+            "type": "string",
+            "description": ""
+          },
+          "detailMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "requestId": {
+            "type": "string",
+            "description": ""
+          },
+          "data": {
+            "$ref": "#/components/schemas/QueryOrderResponse",
+            "description": ""
+          }
+        }
+      },
+      "QueryOrderResponse": {
+        "type": "object",
+        "properties": {
+          "powerCardOrderNo": {
+            "type": "string",
+            "description": "powerCard 订单号"
+          },
+          "status": {
+            "type": "string",
+            "description": "订单状态（success：成功，failed：失败，pending：处理中，retry：重试）"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "apikey-header-merchantId": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "merchantId"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://pwapi.url",
+      "description": "doc环境"
+    }
+  ],
+  "security": [
+    {
+      "apikey-header-merchantId": []
+    }
+  ]
+}
