@@ -65,10 +65,14 @@
                   "api-reference/card/queryBalance",
                   "api-reference/card/setCardStatus",
                   "api-reference/card/closeCard",
-                  "api-reference/card/setLimit",
                   "api-reference/card/setPINIframe",
+                  "api-reference/card/updatePINIframe",
+                  "api-reference/card/resetPINIframe",
                   "api-reference/card/printCard",
                   "api-reference/card/getPhysicalCardInfo",
+                  "api-reference/card/setPhoneNumber",
+                  "api-reference/card/setAddress",
+                  "api-reference/card/activateCard",
                   "api-reference/card/getCardStatus"
                 ]
               },
@@ -76,15 +80,7 @@
                 "group": "交易",
                 "pages": [
                   "api-reference/transaction/queryTransactions",
-                  "api-reference/transaction/queryOrder",
-                  "api-reference/transaction/queryBusiness"
-                ]
-              },
-              {
-                "group": "商户",
-                "pages": [
-                  "api-reference/merchant/balance",
-                  "api-reference/merchant/recharge"
+                  "api-reference/transaction/queryOrder"
                 ]
               }
             ]
@@ -145,10 +141,14 @@
                   "api-reference/en/card/queryBalance",
                   "api-reference/en/card/setCardStatus",
                   "api-reference/en/card/closeCard",
-                  "api-reference/en/card/setLimit",
                   "api-reference/en/card/setPINIframe",
+                  "api-reference/card/updatePINIframe",
+                  "api-reference/card/resetPINIframe",
                   "api-reference/en/card/printCard",
                   "api-reference/en/card/getPhysicalCardInfo",
+                  "api-reference/card/setPhoneNumber",
+                  "api-reference/card/setAddress",
+                  "api-reference/card/activateCard",
                   "api-reference/en/card/getCardStatus"
                 ]
               },
@@ -156,15 +156,7 @@
                 "group": "Transaction",
                 "pages": [
                   "api-reference/en/transaction/queryTransactions",
-                  "api-reference/en/transaction/queryOrder",
-                  "api-reference/en/transaction/queryBusiness"
-                ]
-              },
-              {
-                "group": "Merchant",
-                "pages": [
-                  "api-reference/en/merchant/balance",
-                  "api-reference/en/merchant/recharge"
+                  "api-reference/en/transaction/queryOrder"
                 ]
               }
             ]

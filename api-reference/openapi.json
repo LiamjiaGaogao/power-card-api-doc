@@ -1388,6 +1388,47 @@
           }
         ]
       }
+    },
+    "/powercard/callbackExample": {
+      "post": {
+        "summary": "webhook参考",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MerchantNotifyRequest"
+              },
+              "examples": {}
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "const": "success"
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
+      }
     }
   },
   "webhooks": {
@@ -1551,7 +1592,7 @@
         "properties": {
           "status": {
             "type": "string",
-            "description": "KYC状态"
+            "description": "KYC状态（noKYC：尚未KYC，submitted：已提交，auditing：审批中，pass：KYC通过，fail：KYC失败，unknown：未知）"
           }
         }
       },
@@ -1870,7 +1911,12 @@
           },
           "status": {
             "type": "string",
-            "description": "开卡状态"
+            "description": "开卡状态（pending：处理中，success：成功，failed：失败）",
+            "enum": [
+              "pending",
+              "success",
+              "failed"
+            ]
           }
         }
       },
@@ -1960,7 +2006,7 @@
           },
           "status": {
             "type": "string",
-            "description": "状态"
+            "description": "状态（accept：已接收，success：成功，failed：失败，pending：处理中，approved：同意，refunding：退款中，refunded：已退款，activating：卡片激活中，retry：重试，unknown：未知）\n"
           }
         }
       },
@@ -2126,7 +2172,7 @@
           },
           "status": {
             "type": "string",
-            "description": "状态"
+            "description": "状态（auditing：审批中，auditPass：审批通过，tba：待激活，activating：激活中，active：已激活，closing：关卡中，close：卡片已关闭，frozen：卡片已冻结，unknown：未知）"
           },
           "channelCardNo": {
             "type": "string",
@@ -2167,7 +2213,7 @@
           },
           "bizType": {
             "type": "string",
-            "description": "业务类型\nsuspend 锁定/ unsuspend 解除锁定/"
+            "description": "业务类型（suspend：锁定，unsuspend：解除锁定）"
           }
         },
         "required": [
@@ -2220,7 +2266,7 @@
           },
           "status": {
             "type": "string",
-            "description": "状态"
+            "description": "状态（auditing：审批中，auditPass：审批通过，tba：待激活，activating：激活中，active：已激活，closing：关卡中，close：卡片已关闭，frozen：卡片已冻结，unknown：未知）"
           }
         }
       },
@@ -2298,7 +2344,7 @@
           },
           "status": {
             "type": "string",
-            "description": "状态"
+            "description": "状态（success：成功，failed：失败，pending：处理中）"
           }
         }
       },
@@ -2969,7 +3015,7 @@
         "properties": {
           "status": {
             "type": "string",
-            "description": "卡片状态, 见PwCardStatus"
+            "description": "卡片状态（auditing：审批中，auditPass：审批通过，tba：待激活，activating：激活中，active：已激活，closing：关卡中，close：卡片已关闭，frozen：卡片已冻结，unknown：未知）"
           }
         },
         "required": [
@@ -3738,8 +3784,8 @@
   },
   "servers": [
     {
-      "url": "https://pw.ulikewallet.com/powercard-service",
-      "description": "PROD环境"
+      "url": "https://pwapi.url",
+      "description": "doc环境"
     }
   ],
   "security": [
