@@ -1,0 +1,40 @@
+---
+title: 'CARD_RECHARGE'
+---
+
+### Webhook 描述
+
+| Webhook 名称 | 功能描述 | 请求类型 |
+|--------------|----------|----------|
+| card_recharge| 充值成功的回调通知。只有在充值成功后，商户才会收到该回调通知 | POST |
+
+### Response 示例
+```json
+{
+"eventType": "card_recharge",
+"data": "xxxxxx",
+"key": "xxxxxx"
+}
+```
+
+| 属性名       | 必要参数 | 类型   | 用途             | 范例值                       | 备注 |
+|--------------|----------|--------|------------------|-----------------------------|------|
+| powerCardId  | 是       | string | powerCard卡片id | a9f4cb3bfa8649b88853eded3ad853dd |      |
+| rechargeAmount | 是     | number | 充值金额         | 100.00                      |      |
+| transactionId| 是     | string | 交易ID           | 12345678901234567890        |      |
+| status       | 是       | string | 交易状态         | success                     |      |
+
+### Data 示例
+
+
+```json
+{
+"powerCardId": "a9f4cb3bfa8649b88853eded3ad853dd",
+"powerCardBizId": "202524392343",
+"currency": "4040383164755526",
+"rechargeAmount": "100",
+"receiveAmount": "98",
+"tatus": "success",
+"merchantOrderNo": "20251232130123"
+}
+```

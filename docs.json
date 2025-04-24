@@ -26,8 +26,16 @@
                 "pages": [
                   "developmentGuide/startQuickly/prepare",
                   "developmentGuide/startQuickly/process",
-                  "developmentGuide/startQuickly/encryption",
-                  "developmentGuide/startQuickly/callback"
+                  "developmentGuide/startQuickly/encryption"
+                ]
+              },{
+                "group": "Webhook",
+                "pages": [
+                  "developmentGuide/startQuickly/callback",
+                  "developmentGuide/startQuickly/createWebhook",
+                  "developmentGuide/startQuickly/RechargeWebhook",
+                  "developmentGuide/startQuickly/cancelWebhook",
+                  "developmentGuide/startQuickly/TransactionWebhook"
                 ]
               }
             ]

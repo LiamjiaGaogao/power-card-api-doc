@@ -4,6 +4,7 @@ openapi: 'POST /kyc/getKYCToken'
 ---
 
 ## 接口描述
-KYC校验需调用该接口获取KYC TOKEN
+PowerCard集成了 Sumsub KYC，前端拉起 KYC WebSDK 时，需要获取对应的 token，该接口用于获取 token，详细文档见 [Sumsub WebSDK](https://docs.sumsub.com/docs/get-started-with-web-sdk) 集成文档
 <Note>对于需要KYC校验的卡产品，KYC校验成功后，可直接创建卡   
 不需要KYC校验的卡产品，可跳过该步骤，但需创建用户</Note>
+
