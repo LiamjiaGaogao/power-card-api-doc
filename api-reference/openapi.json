@@ -1480,9 +1480,7 @@
               "card_recharge",
               "card_cancel",
               "card_transaction",
-              "card_status",
-              "card_verify",
-              "card_adjustment"
+              "card_status"
             ]
           },
           "data": {
@@ -2017,7 +2015,7 @@
           },
           "status": {
             "type": "string",
-            "description": "状态（accept：已接收，success：成功，failed：失败，pending：处理中，approved：同意，refunding：退款中，refunded：已退款，activating：卡片激活中，retry：重试，unknown：未知）\n"
+            "description": "状态（accept：已接收，success：成功，failed：失败，pending：处理中，approved：同意，refunding：退款中，refunded：已退款，activating：卡片激活中，retry：重试中，unknown：未知）\n"
           }
         }
       },
