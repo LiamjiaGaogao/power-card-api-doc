@@ -1,0 +1,37 @@
+---
+title: 'CARD_STATUS'
+---
+
+### Webhook 描述
+
+| Webhook 名称 | 功能描述                             | 请求类型 |
+|--------------|----------------------------------|----------|
+| card_status| 卡状态变更的回调通知。只有在卡状态修改后，商户才会收到该回调通知 | POST |
+
+### Response 示例
+```json
+{
+"eventType": "card_status",
+"data": "xxxxxx",
+"key": "xxxxxx"
+}
+```
+
+| 属性名       | 必要参数 | 类型     | 用途            | 范例值                              | 备注 |
+|--------------|----------|--------|---------------|----------------------------------|------|
+| powerCardId  | 是       | string | powerCard卡片id | a9f4cb3bfa8649b88853eded3ad853dd |      |
+| status | 是     | string | 卡状态           | active                          |      |
+| reason| 是     | string | 原因            | reason1                          |      |
+| time       | 是       | string   | 时间戳           | 1745486039                          |      |
+
+### Data 示例
+
+
+```json
+{
+"powerCardId": "a9f4cb3bfa8649b88853eded3ad853dd",
+"status": "active",
+"reason": "reason1",
+"time": 1745486039
+}
+```

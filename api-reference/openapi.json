@@ -392,55 +392,6 @@
         ]
       }
     },
-    "/card/setStatus": {
-      "post": {
-        "summary": "设置卡片状态",
-        "deprecated": false,
-        "description": "",
-        "tags": [],
-        "parameters": [],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SetCardStatusRequest",
-                "description": ""
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CommonResultSetCardStatusResponse"
-                },
-                "example": {
-                  "success": false,
-                  "errorCode": "",
-                  "errorMessage": "",
-                  "errorMessageEn": "",
-                  "detailMessage": "",
-                  "requestId": "",
-                  "data": {
-                    "bizId": "",
-                    "status": ""
-                  }
-                }
-              }
-            },
-            "headers": {}
-          }
-        },
-        "security": [
-          {
-            "apikey-header-merchantId": []
-          }
-        ]
-      }
-    },
     "/card/close": {
       "post": {
         "summary": "关卡",
@@ -996,6 +947,55 @@
                   "detailMessage": "",
                   "requestId": "",
                   "data": {
+                    "status": ""
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
+      }
+    },
+    "/card/setStatus": {
+      "post": {
+        "summary": "设置卡片状态",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SetStatusReqVO",
+                "description": ""
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommonResultSetStatusResVO"
+                },
+                "example": {
+                  "success": false,
+                  "errorCode": "",
+                  "errorMessage": "",
+                  "errorMessageEn": "",
+                  "detailMessage": "",
+                  "requestId": "",
+                  "data": {
+                    "bizId": "",
                     "status": ""
                   }
                 }
@@ -1775,6 +1775,22 @@
             "type": "number",
             "description": "pw销卡手续费"
           },
+          "pwRefundFee": {
+            "type": "number",
+            "description": "pw退款手续费"
+          },
+          "pwWithdrawFee": {
+            "type": "number",
+            "description": "pw取现手续费"
+          },
+          "pwRefundFeeType": {
+            "type": "string",
+            "description": "pw退款手续费类型"
+          },
+          "pwWithdrawFeeType": {
+            "type": "string",
+            "description": "pw取现手续费类型"
+          },
           "pwRechargeFeeType": {
             "type": "string",
             "description": "pw充值手续费类型"
@@ -2184,84 +2200,14 @@
           "kycStatus": {
             "type": "string",
             "description": "KYC状态"
-          }
-        }
-      },
-      "SetCardStatusRequest": {
-        "type": "object",
-        "properties": {
-          "merchantId": {
-            "type": "string",
-            "description": "商户id"
           },
-          "merchantUserId": {
+          "kycFullName": {
             "type": "string",
-            "description": "商户侧用户id"
+            "description": "kyc名称"
           },
-          "powerCardId": {
+          "postalCode": {
             "type": "string",
-            "description": "powerCard卡片id"
-          },
-          "channel": {
-            "type": "string",
-            "description": "开卡渠道"
-          },
-          "bizType": {
-            "type": "string",
-            "description": "业务类型（suspend：锁定，unsuspend：解除锁定）"
-          }
-        },
-        "required": [
-          "merchantId",
-          "merchantUserId",
-          "powerCardId",
-          "channel",
-          "bizType"
-        ]
-      },
-      "CommonResultSetCardStatusResponse": {
-        "type": "object",
-        "properties": {
-          "success": {
-            "type": "boolean",
-            "description": ""
-          },
-          "errorCode": {
-            "type": "string",
-            "description": ""
-          },
-          "errorMessage": {
-            "type": "string",
-            "description": ""
-          },
-          "errorMessageEn": {
-            "type": "string",
-            "description": ""
-          },
-          "detailMessage": {
-            "type": "string",
-            "description": ""
-          },
-          "requestId": {
-            "type": "string",
-            "description": ""
-          },
-          "data": {
-            "$ref": "#/components/schemas/SetCardStatusResponse",
-            "description": ""
-          }
-        }
-      },
-      "SetCardStatusResponse": {
-        "type": "object",
-        "properties": {
-          "bizId": {
-            "type": "string",
-            "description": "业务流水id"
-          },
-          "status": {
-            "type": "string",
-            "description": "状态（auditing：审批中，auditPass：审批通过，tba：待激活，activating：激活中，active：已激活，closing：关卡中，close：卡片已关闭，frozen：卡片已冻结，unknown：未知）"
+            "description": "邮政编码"
           }
         }
       },
@@ -3016,6 +2962,69 @@
         "required": [
           "status"
         ]
+      },
+      "SetStatusReqVO": {
+        "type": "object",
+        "properties": {
+          "powerCardId": {
+            "type": "string",
+            "description": "powerCardId"
+          },
+          "action": {
+            "type": "string",
+            "description": "操作\nactive: 解冻, inactive: 冻结"
+          }
+        },
+        "required": [
+          "powerCardId",
+          "action"
+        ]
+      },
+      "CommonResultSetStatusResVO": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": ""
+          },
+          "errorCode": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "errorMessageEn": {
+            "type": "string",
+            "description": ""
+          },
+          "detailMessage": {
+            "type": "string",
+            "description": ""
+          },
+          "requestId": {
+            "type": "string",
+            "description": ""
+          },
+          "data": {
+            "$ref": "#/components/schemas/SetStatusResVO",
+            "description": ""
+          }
+        }
+      },
+      "SetStatusResVO": {
+        "type": "object",
+        "properties": {
+          "powerCardId": {
+            "type": "string",
+            "description": "powerCardId"
+          },
+          "status": {
+            "type": "string",
+            "description": "状态"
+          }
+        }
       },
       "CreateUserRequest": {
         "type": "object",

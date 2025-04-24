@@ -7,7 +7,7 @@ openapi: 'WEBHOOK /powercard/callbackExample'
 
 商户收到 PowerCard 的 Webhook 后，使用 RSA 私钥对请求体中的 key 进行解密，将解密后的数据进行 Base64 解码得到 AES 密钥。使用解码出的 AES 密钥对请求体中的 data 进行解密，将解密后的数据进行 Base64 解码后得到最终的数据。根据 eventType 对相应的业务类型进行处理。
 
-```
+```json
 {
     "eventType": "CARD_CREATE",
     "key": "xxxxxxxxxx",
@@ -26,7 +26,7 @@ openapi: 'WEBHOOK /powercard/callbackExample'
 商户收到 Webhook 后，应当返回处理成功或者失败的响应。当 PowerCard 收到响应为 “success”的字符串时，将认定商户已成功处理本次 Webhook，不再进行通知；否则 PowerCard 会进行重复通知，频率为第 5 分钟、第 10 分钟、第 30 分钟、第 60 分钟。商户返回的响应，不应当进行任何加密，样例如下：
 
 **Response 示例**
-```
+``` json
     "success"
 ```
 

@@ -7,7 +7,7 @@ The callback API is used to notify the merchant's system when specific events oc
 
 When merchants receive a Webhook from PowerCard, they should use the RSA private key to decrypt the key in the request body, then decode the decrypted data with Base64 to obtain the AES key. Use the decoded AES key to decrypt the data in the request body, then decode the decrypted data with Base64 to get the final data. Process the corresponding business type based on the eventType.
 
-```
+```json
 {
     "eventType": "CARD_CREATE",
     "key": "xxxxxxxxxx",
@@ -26,7 +26,7 @@ When merchants receive a Webhook from PowerCard, they should use the RSA private
 After receiving the Webhook, merchants should return a response indicating success or failure. When PowerCard receives a response of "success", it will consider the Webhook successfully processed by the merchant and will not send further notifications; otherwise, PowerCard will repeat the notification at intervals of 5 minutes, 10 minutes, 30 minutes, and 60 minutes. The response returned by the merchant should not be encrypted, as shown in the example below:
 
 **Response Example**
-```
+```json
     "success"
 ```
 

@@ -35,7 +35,8 @@
                   "developmentGuide/startQuickly/createWebhook",
                   "developmentGuide/startQuickly/RechargeWebhook",
                   "developmentGuide/startQuickly/cancelWebhook",
-                  "developmentGuide/startQuickly/TransactionWebhook"
+                  "developmentGuide/startQuickly/TransactionWebhook",
+                  "developmentGuide/startQuickly/statusWebhook"
                 ]
               }
             ]
@@ -110,8 +111,17 @@
                 "pages": [
                   "developmentGuide/en/startQuickly/prepare",
                   "developmentGuide/en/startQuickly/process",
-                  "developmentGuide/en/startQuickly/encryption",
-                  "developmentGuide/en/startQuickly/callback"
+                  "developmentGuide/en/startQuickly/encryption"
+                ]
+              },{
+                "group": "Webhook",
+                "pages": [
+                  "developmentGuide/en/startQuickly/callback",
+                  "developmentGuide/en/startQuickly/createWebhook",
+                  "developmentGuide/en/startQuickly/RechargeWebhook",
+                  "developmentGuide/en/startQuickly/cancelWebhook",
+                  "developmentGuide/en/startQuickly/TransactionWebhook",
+                  "developmentGuide/en/startQuickly/statusWebhook"
                 ]
               }
             ]
@@ -150,13 +160,13 @@
                   "api-reference/en/card/setCardStatus",
                   "api-reference/en/card/closeCard",
                   "api-reference/en/card/setPINIframe",
-                  "api-reference/card/updatePINIframe",
-                  "api-reference/card/resetPINIframe",
+                  "api-reference/en/card/updatePINIframe",
+                  "api-reference/en/card/resetPINIframe",
                   "api-reference/en/card/printCard",
                   "api-reference/en/card/getPhysicalCardInfo",
-                  "api-reference/card/setPhoneNumber",
-                  "api-reference/card/setAddress",
-                  "api-reference/card/activateCard",
+                  "api-reference/en/card/setPhoneNumber",
+                  "api-reference/en/card/setAddress",
+                  "api-reference/en/card/activateCard",
                   "api-reference/en/card/getCardStatus"
                 ]
               },

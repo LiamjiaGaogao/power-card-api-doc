@@ -4,6 +4,7 @@ openapi: 'POST /kyc/getKYCToken'
 ---
 
 ## Interface Description
+PowerCard integrates with Sumsub KYC. When the frontend launches the KYC WebSDK, it needs to obtain the corresponding token. This interface is used to get the token. For detailed documentation, refer to [Sumsub WebSDK](https://docs.sumsub.com/docs/get-started-with-web-sdk) integration documentation.
 KYC verification requires calling this interface to obtain the KYC TOKEN.
 <Note>For card products that require KYC verification, cards can be created directly after successful KYC verification.  
 For card products that do not require KYC verification, this step can be skipped, but users must be created.</Note>

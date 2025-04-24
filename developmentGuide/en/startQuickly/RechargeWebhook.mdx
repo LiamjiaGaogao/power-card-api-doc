@@ -1,0 +1,40 @@
+---
+title: 'CARD_RECHARGE'
+---
+
+### Webhook Description
+
+| Webhook Name | Description | Request Type |
+|--------------|------------|--------------|
+| card_recharge| Callback notification for successful recharge. Merchants will only receive this notification after a successful recharge. | POST |
+
+### Response Example
+```json
+{
+"eventType": "card_recharge",
+"data": "xxxxxx",
+"key": "xxxxxx"
+}
+```
+
+| Field Name   | Required | Type   | Description      | Example Value               | Note |
+|--------------|----------|--------|------------------|-----------------------------|------|
+| powerCardId  | Yes      | string | PowerCard ID     | a9f4cb3bfa8649b88853eded3ad853dd |      |
+| rechargeAmount | Yes     | number | Recharge amount  | 100.00                      |      |
+| transactionId| Yes     | string | Transaction ID   | 12345678901234567890        |      |
+| status       | Yes      | string | Transaction status | success                     |      |
+
+### Data Example
+
+
+```json
+{
+"powerCardId": "a9f4cb3bfa8649b88853eded3ad853dd",
+"powerCardBizId": "202524392343",
+"currency": "4040383164755526",
+"rechargeAmount": "100",
+"receiveAmount": "98",
+"status": "success",
+"merchantOrderNo": "20251232130123"
+}
+```

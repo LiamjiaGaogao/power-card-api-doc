@@ -1,0 +1,40 @@
+---
+title: 'CARD_CREATE'
+---
+
+### Webhook Description
+
+| Webhook Name | Description | Request Type |
+|--------------|------------|--------------|
+| card_create  | Callback notification for successful card creation. Merchants will receive this notification only after successful card creation. | POST |
+
+### Response Example
+```json
+{
+"eventType": "card_create",
+"data": "xxxxxx",
+"key": "xxxxxx"
+}
+```
+
+| Field Name    | Required | Type   | Description      | Example Value               | Remarks |
+|--------------|----------|--------|------------------|-----------------------------|---------|
+| powerCardId  | Yes      | string | PowerCard ID    | a9f4cb3bfa8649b88853eded3ad853dd |         |
+| activeSerialNo | Yes    | string | Merchant activation serial number |                            |         |
+| cardNo       | Yes      | string | Credit card number | 4040383164755526           |         |
+| cvv2         | Yes      | string | Credit card CVV2 | 456                        |         |
+| expireDate   | Yes      | string | Credit card expiration date | 09/26                      |         |
+| status       | Yes      | string | Credit card status | active                     |         |
+
+
+### Data Example
+```json
+{
+"powerCardId": "a9f4cb3bfa8649b88853eded3ad853dd",
+"activeSerialNo": "12344543654656",
+"cardNo": "4040383164755526",
+"cvv2": "456",
+"expireDate": "09/26",
+"status": "active"
+}
+```
