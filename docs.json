@@ -21,14 +21,16 @@
                 "pages": [
                   "developmentGuide/productIntroduction"
                 ]
-              },{
+              },
+              {
                 "group": "快速开始",
                 "pages": [
                   "developmentGuide/startQuickly/prepare",
                   "developmentGuide/startQuickly/process",
                   "developmentGuide/startQuickly/encryption"
                 ]
-              },{
+              },
+              {
                 "group": "Webhook",
                 "pages": [
                   "developmentGuide/startQuickly/callback",
@@ -95,25 +97,22 @@
             ]
           }
         ]
-      },{
+      },
+      {
         "language": "en",
         "tabs": [
           {
             "tab": "Development Guide",
             "groups": [
               {
-                "group": "Product Introduction",
-                "pages": [
-                  "developmentGuide/en/productIntroduction"
-                ]
-              },{
                 "group": "Quick Start",
                 "pages": [
                   "developmentGuide/en/startQuickly/prepare",
                   "developmentGuide/en/startQuickly/process",
                   "developmentGuide/en/startQuickly/encryption"
                 ]
-              },{
+              },
+              {
                 "group": "Webhook",
                 "pages": [
                   "developmentGuide/en/startQuickly/callback",
