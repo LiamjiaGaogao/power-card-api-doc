@@ -4,63 +4,84 @@ title: 'CARD_TRANSACTION'
 
 ### Webhook Description
 
-| Webhook Name | Description | Request Type |
-|--------------|-------------|--------------|
-| card_transaction | Callback notification for user consumption orders. This notification will be sent when PowerCard receives merchant's consumption information. | POST |
+| Webhook Name     | Description                                                                                                                                   | Request Type |
+|------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|--------------|
+| card_transaction | Callback notification for user consumption orders. This notification will be sent when PowerCard receives merchant's consumption information. | POST         |
 
 ### Response Example
+
 ```json
 {
-"eventType": "card_transaction",
-"data": "xxxxxx",
-"key": "xxxxxx"
+  "eventType": "card_transaction",
+  "data": "xxxxxx",
+  "key": "xxxxxx"
 }
 ```
 
 ### Field Description
 
+| Field Name      | Required | Type        | Description                    | Example Value                    | Note |
+|-----------------|----------|-------------|--------------------------------|----------------------------------|------|
+| powerCardId     | Yes      | string      | PowerCard ID                   | a9f4cb3bfa8649b88853eded3ad853dd |      |
+| createTime      | Yes      | int64       | Transaction creation time      |                                  |      |
+| transaction     | Yes      | Transaction | Consumption information        |                                  |      |
+| authTransaction | Yes      | Transaction | Authorization information      |                                  |      |
+| holdRefund      | Yes      | Transaction | Pre-authorization refund order |                                  |      |
+
+### Transaction Structure
+
 | Field Name | Required | Type | Description | Example Value | Note |
-|------------|----------|------|-------------|----------------|------|
-| powerCardId | Yes | string | PowerCard ID | a9f4cb3bfa8649b88853eded3ad853dd | |
-| createTime | Yes | int64 | Transaction creation time | | |
-| transaction | Yes | Transaction | Consumption information | | |
-| authTransaction | Yes | Transaction | Authorization information | | |
-| holdRefund | Yes | Transaction | Pre-authorization refund order | | |
+|---------------------|----------|-------------|----------------|----------------|------|
+| transNo | Yes | string | PowerCard transaction order number | a9f4cb3bfa8649b88853eded3ad853dd | |
+| oriTransNo | Yes | number | Original order number | | |
+| settlementCurrency | Yes | string | Settlement currency | | |
+| settlementAmount | Yes | Object | Settlement amount | | |
+| transCurrency | Yes | string | Transaction currency | | |
+| transAmount | Yes | number | Transaction amount | | |
+| handlingFee | Yes | number | Handling fee | | |
+| handlingFeeCurrency | Yes | string | Handling fee currency | | |
+| transStatus | Yes | string | Transaction status | | |
+| remark | No | string | Remark | | |
+| transType | Yes | string | Transaction type | | |
+| transTime | Yes | number | Transaction time | | |
+| merchantName | Yes | string | Merchant name | | |
+| refundAmountDiff | No | number | Difference due to exchange rate changes when refunding | | |
 
 ### Data Example
+
 ```json
 {
-"powerCardId": "1396041e48304c64842b920391c8d35a",
-"createTime": 1743057837618,
-"transaction": {
-"handlingFee": 0,
-"handlingFeeCurrency": "USD",
-"merchantName": "DISCORD* NITROBASIC-MO",
-"remark": "VISA 40085 US",
-"settlementAmount": -2.99,
-"settlementCurrency": "USD",
-"transAmount": -2.99,
-"transCurrency": "USD",
-"transNo": "250327530370001",
-"transStatus": "approved",
-"transTime": 1743057837618,
-"transType": "purchase"
-}
+  "powerCardId": "1396041e48304c64842b920391c8d35a",
+  "createTime": 1743057837618,
+  "transaction": {
+    "handlingFee": 0,
+    "handlingFeeCurrency": "USD",
+    "merchantName": "DISCORD* NITROBASIC-MO",
+    "remark": "VISA 40085 US",
+    "settlementAmount": -2.99,
+    "settlementCurrency": "USD",
+    "transAmount": -2.99,
+    "transCurrency": "USD",
+    "transNo": "250327530370001",
+    "transStatus": "approved",
+    "transTime": 1743057837618,
+    "transType": "purchase"
+  }
 }
 ```
 
-Field Name	Required	Type	Description	Example Value	Note
-transNo	Yes	string	PowerCard transaction order number	a9f4cb3bfa8649b88853eded3ad853dd
-oriTransNo	是	int64	原始订单号		
-settlementCurrency	是	string	结算币种		
-settlementAmount	是	Object	结算金额 		
-transCurrency	是	string	交易币种		
-transAmount	是	number	交易金额		
-handlingFee	是	number	手续费		
-handlingFeeCurrency	是	string	手续费币种		
-transStatus	是	string	交易状态		
-remark	否	string	备注		
-transType	是	string	交易类型		
-transTime	是	int64	交易时间		
-merchantName	是	string	商家名称		
-refundAmountDiff	否	number	退款时由于汇率变化的差值
+Field Name Required Type Description Example Value Note
+transNo Yes string PowerCard transaction order number a9f4cb3bfa8649b88853eded3ad853dd
+oriTransNo 是 int64 原始订单号		
+settlementCurrency 是 string 结算币种		
+settlementAmount 是 Object 结算金额 		
+transCurrency 是 string 交易币种		
+transAmount 是 number 交易金额		
+handlingFee 是 number 手续费		
+handlingFeeCurrency 是 string 手续费币种		
+transStatus 是 string 交易状态		
+remark 否 string 备注		
+transType 是 string 交易类型		
+transTime 是 int64 交易时间		
+merchantName 是 string 商家名称		
+refundAmountDiff 否 number 退款时由于汇率变化的差值

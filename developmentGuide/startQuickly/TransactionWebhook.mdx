@@ -4,63 +4,69 @@ title: 'CARD_TRANSACTION'
 
 ### Webhook 描述
 
-| Webhook 名称 | 功能描述 | 请求类型 |
-|--------------|----------|----------|
+| Webhook 名称       | 功能描述                                      | 请求类型 |
+|------------------|-------------------------------------------|------|
 | card_transaction | 用户消费订单的回调通知。当PowerCard收到商家的消费信息后，会发送该回调通知 | POST |
 
 ### Response 示例
+
 ```json
 {
-"eventType": "card_transaction",
-"data": "xxxxxx",
-"key": "xxxxxx"
+  "eventType": "card_transaction",
+  "data": "xxxxxx",
+  "key": "xxxxxx"
 }
 ```
 
 ### 属性说明
 
-| 属性名 | 必要参数 | 类型 | 用途 | 范例值 | 备注 |
-|--------|----------|------|------|--------|------|
-| powerCardId | 是 | string | powerCard卡片id | a9f4cb3bfa8649b88853eded3ad853dd | |
-| createTime | 是 | int64 | 交易创建时间 | | |
-| transaction | 是 | Transaction | 消费信息 | | |
-| authTransaction | 是 | Transaction | 授权信息 | | |
-| holdRefund | 是 | Transaction | 预授权退款订单 | | |
+| 属性名             | 必要参数 | 类型          | 用途            | 范例值                              | 备注 |
+|-----------------|------|-------------|---------------|----------------------------------|----|
+| powerCardId     | 是    | string      | powerCard卡片id | a9f4cb3bfa8649b88853eded3ad853dd |    |
+| createTime      | 是    | int64       | 交易创建时间        |                                  |    |
+| transaction     | 是    | Transaction | 消费信息          |                                  |    |
+| authTransaction | 是    | Transaction | 授权信息          |                                  |    |
+| holdRefund      | 是    | Transaction | 预授权退款订单       |                                  |    |
+
+
+**Transaction结构**
+
+| 属性名                 | 必要参数 | 类型          | 用途             | 范例值                              | 备注 |
+|---------------------|------|-------------|----------------|----------------------------------|----|
+| transNo             | 是    | string      | powerCard交易订单号 | a9f4cb3bfa8649b88853eded3ad853dd |    |
+| oriTransNo          | 是    | number       | 原始订单号          |                                  |    |
+| settlementCurrency  | 是    | string      | 结算币种           |                                  |    |
+| settlementAmount    | 是    | Object      | 结算金额           |                                  |    |
+| transCurrency       | 是    | string      | 交易币种           |                                  |    |
+| transAmount         | 是    | number      | 交易金额           |                                  |    |
+| handlingFee         | 是    | number      | 手续费            |                                  |    |
+| handlingFeeCurrency | 是    | string      | 手续费币种          |                                  |    |
+| transStatus         | 是    | string      | 交易状态           |                                  |    |
+| remark              | 否    | string      | 备注             |                                  |    |
+| transType           | 是    | string      | 交易类型           |                                  |    |
+| transTime           | 是    | number       | 交易时间           |                                  |    |
+| merchantName        | 是    | string      | 商家名称           |                                  |    |
+| refundAmountDiff    | 否    | number      | 退款时由于汇率变化的差值   |                                  |    |
 
 ### Data 示例
+
 ```json
 {
-"powerCardId": "1396041e48304c64842b920391c8d35a",
-"createTime": 1743057837618,
-"transaction": {
-"handlingFee": 0,
-"handlingFeeCurrency": "USD",
-"merchantName": "DISCORD* NITROBASIC-MO",
-"remark": "VISA 40085 US",
-"settlementAmount": -2.99,
-"settlementCurrency": "USD",
-"transAmount": -2.99,
-"transCurrency": "USD",
-"transNo": "250327530370001",
-"transStatus": "approved",
-"transTime": 1743057837618,
-"transType": "purchase"
-}
+  "powerCardId": "1396041e48304c64842b920391c8d35a",
+  "createTime": 1743057837618,
+  "transaction": {
+    "handlingFee": 0,
+    "handlingFeeCurrency": "USD",
+    "merchantName": "DISCORD* NITROBASIC-MO",
+    "remark": "VISA 40085 US",
+    "settlementAmount": -2.99,
+    "settlementCurrency": "USD",
+    "transAmount": -2.99,
+    "transCurrency": "USD",
+    "transNo": "250327530370001",
+    "transStatus": "approved",
+    "transTime": 1743057837618,
+    "transType": "purchase"
+  }
 }
 ```
-
-属性名	必要参数	类型	用途	范例值	备注
-transNo	是	string	powerCard交易订单号	a9f4cb3bfa8649b88853eded3ad853dd
-oriTransNo	是	int64	原始订单号		
-settlementCurrency	是	string	结算币种		
-settlementAmount	是	Object	结算金额 		
-transCurrency	是	string	交易币种		
-transAmount	是	number	交易金额		
-handlingFee	是	number	手续费		
-handlingFeeCurrency	是	string	手续费币种		
-transStatus	是	string	交易状态		
-remark	否	string	备注		
-transType	是	string	交易类型		
-transTime	是	int64	交易时间		
-merchantName	是	string	商家名称		
-refundAmountDiff	否	number	退款时由于汇率变化的差值

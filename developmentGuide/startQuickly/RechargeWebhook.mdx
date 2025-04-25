@@ -11,30 +11,33 @@ title: 'CARD_RECHARGE'
 ### Response 示例
 ```json
 {
-"eventType": "card_recharge",
-"data": "xxxxxx",
-"key": "xxxxxx"
+  "eventType": "card_recharge",
+  "data": "xxxxxx",
+  "key": "xxxxxx"
 }
 ```
 
-| 属性名       | 必要参数 | 类型   | 用途             | 范例值                       | 备注 |
-|--------------|----------|--------|------------------|-----------------------------|------|
-| powerCardId  | 是       | string | powerCard卡片id | a9f4cb3bfa8649b88853eded3ad853dd |      |
-| rechargeAmount | 是     | number | 充值金额         | 100.00                      |      |
-| transactionId| 是     | string | 交易ID           | 12345678901234567890        |      |
-| status       | 是       | string | 交易状态         | success                     |      |
+| 属性名       | 必要参数 | 类型     | 用途                 | 范例值                              | 备注 |
+|--------------|----------|--------|--------------------|----------------------------------|------|
+| powerCardId  | 是       | string | powerCard卡片id      | a9f4cb3bfa8649b88853eded3ad853dd |      |
+| powerCardBizId  | 是       | string | PowerCard充值业务流水id	 | a9f4cb3bfa8649b88853eded3ad853dd |      |
+| currency  | 是       | string | 币种	                | USDT                             |      |
+| rechargeAmount | 是     | string | 充值金额               | 100.00                           |      |
+| receiveAmount| 是     | string | 充值到账金额              | 99.50                            |      |
+| status       | 是       | string | 交易状态               | success                          |      |
+| merchantRechargeNo       | 是       | string | 商户充值订单号               |  20251232130123                                |      |
 
 ### Data 示例
 
 
 ```json
 {
-"powerCardId": "a9f4cb3bfa8649b88853eded3ad853dd",
-"powerCardBizId": "202524392343",
-"currency": "4040383164755526",
-"rechargeAmount": "100",
-"receiveAmount": "98",
-"tatus": "success",
-"merchantOrderNo": "20251232130123"
+  "powerCardId": "a9f4cb3bfa8649b88853eded3ad853dd",
+  "powerCardBizId": "202524392343",
+  "currency": "USDT",
+  "rechargeAmount": "100",
+  "receiveAmount": "98",
+  "status": "success",
+  "merchantRechargeNo": "20251232130123"
 }
 ```

@@ -3,29 +3,40 @@ title: 'Webhook Callback Example'
 openapi: 'WEBHOOK /powercard/callbackExample'
 ---
 
-The callback API is used to notify the merchant's system when specific events occur. This mechanism allows PowerCard to asynchronously inform merchants of operation results or status changes. Merchants need to provide a callback API URL to PowerCard and implement the callback API functionality according to the rules.
+The callback API is used to notify the merchant's system when specific events occur. This mechanism allows PowerCard to
+asynchronously inform merchants of operation results or status changes. Merchants need to provide a callback API URL to
+PowerCard and implement the callback API functionality according to the rules.
 
-When merchants receive a Webhook from PowerCard, they should use the RSA private key to decrypt the key in the request body, then decode the decrypted data with Base64 to obtain the AES key. Use the decoded AES key to decrypt the data in the request body, then decode the decrypted data with Base64 to get the final data. Process the corresponding business type based on the eventType.
+When merchants receive a Webhook from PowerCard, they should use the RSA private key to decrypt the key in the request
+body, then decode the decrypted data with Base64 to obtain the AES key. Use the decoded AES key to decrypt the data in
+the request body, then decode the decrypted data with Base64 to get the final data. Process the corresponding business
+type based on the eventType.
 
 ```json
 {
-    "eventType": "CARD_CREATE",
-    "key": "xxxxxxxxxx",
-    "data": "xxxxxxxxxxx"
+  "eventType": "CARD_CREATE",
+  "key": "xxxxxxxxxx",
+  "data": "xxxxxxxxxxx"
 }
 ```
 
-|   **Event Type**    |                           **Description**                           |
-| :---------------: | :----------------------------------------------------------: |
-|   CARD\_CREATE    | Callback notification for successful card creation. Merchants will receive this callback only after successful card creation. |
-|  CARD\_RECHARGE   | Callback notification for card recharge. PowerCard will send this callback after successfully processing a recharge order. |
-|   CARD\_CANCEL    | Callback notification for card cancellation. PowerCard will send this callback after successfully processing a card cancellation order. |
+|  **Event Type**   |                                                             **Description**                                                              |
+|:-----------------:|:----------------------------------------------------------------------------------------------------------------------------------------:|
+|   CARD\_CREATE    |      Callback notification for successful card creation. Merchants will receive this callback only after successful card creation.       |
+|  CARD\_RECHARGE   |        Callback notification for card recharge. PowerCard will send this callback after successfully processing a recharge order.        |
+|   CARD\_CANCEL    | Callback notification for card cancellation. PowerCard will send this callback after successfully processing a card cancellation order.  |
 | CARD\_TRANSACTION | Callback notification for user consumption orders. PowerCard will send this callback after receiving merchant's consumption information. |
-|   CARD\_STATUS    | Callback notification for card status changes. PowerCard will send this callback when the card is frozen or unfrozen. |
+|   CARD\_STATUS    |          Callback notification for card status changes. PowerCard will send this callback when the card is frozen or unfrozen.           |
 
-After receiving the Webhook, merchants should return a response indicating success or failure. When PowerCard receives a response of "success", it will consider the Webhook successfully processed by the merchant and will not send further notifications; otherwise, PowerCard will repeat the notification at intervals of 5 minutes, 10 minutes, 30 minutes, and 60 minutes. The response returned by the merchant should not be encrypted, as shown in the example below:
+Merchants should return "success" as plain text response without any encryption when receiving Webhook notifications.
+
+After receiving the Webhook, merchants should return a response indicating success or failure. When PowerCard receives a
+response of "success", it will consider the Webhook successfully processed by the merchant and will not send further
+notifications; otherwise, PowerCard will repeat the notification at intervals of 5 minutes, 10 minutes, 30 minutes, and
+60 minutes. The response returned by the merchant should not be encrypted, as shown in the example below:
 
 **Response Example**
+
 ```json
     "success"
 ```

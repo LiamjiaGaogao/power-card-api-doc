@@ -4,38 +4,40 @@ title: 'CARD_CANCEL'
 
 ### Webhook Description
 
-| Webhook Name | Description | Request Type |
-|--------------|-------------|--------------|
-| card_cancel  | Callback notification for card cancellation. PowerCard will send this notification after successfully processing a cancellation order | POST |
+| Webhook Name | Description                                                                                                                           | Request Type |
+|--------------|---------------------------------------------------------------------------------------------------------------------------------------|--------------|
+| card_cancel  | Callback notification for card cancellation. PowerCard will send this notification after successfully processing a cancellation order | POST         |
 
 ### Response Example
+
 ```json
 {
-"eventType": "card_cancel",
-"data": "xxxxxx",
-"key": "xxxxxx"
+  "eventType": "card_cancel",
+  "data": "xxxxxx",
+  "key": "xxxxxx"
 }
 ```
 
-| Field Name     | Required | Type   | Purpose          | Example Value               | Remarks |
-|----------------|----------|--------|------------------|-----------------------------|---------|
-| powerCardId    | Yes      | string | PowerCard ID     | a9f4cb3bfa8649b88853eded3ad853dd |         |
-| powerCardBizId | Yes      | string | PowerCard cancellation business ID |                            |         |
-| currency       | Yes      | string | Currency         |                            |         |
-| refundAmount   | Yes      | string | Refund amount    |                            |         |
-| receiveAmount  | Yes      | string | Received amount  |                            |         |
-| status         | Yes      | string | Order status     |                            |         |
-| merchantCancelNo | Yes   | string | Merchant cancellation number |                            |         |
+| Field Name       | Required | Type   | Purpose                            | Example Value                    | Remarks |
+|------------------|----------|--------|------------------------------------|----------------------------------|---------|
+| powerCardId      | Yes      | string | PowerCard ID                       | a9f4cb3bfa8649b88853eded3ad853dd |         |
+| powerCardBizId   | Yes      | string | PowerCard cancellation business ID |                                  |         |
+| currency         | Yes      | string | Currency                           |                                  |         |
+| refundAmount     | Yes      | string | Refund amount                      |                                  |         |
+| receiveAmount    | Yes      | string | Received amount                    |                                  |         |
+| status           | Yes      | string | Order status                       |                                  |         |
+| merchantCancelNo | Yes      | string | Merchant cancellation number       |                                  |         |
 
 ### Data Example
+
 ```json
 {
-"powerCardId": "a9f4cb3bfa8649b88853eded3ad853dd",
-"powerCardBizId": "202524392343",
-"currency": "4040383164755526",
-"refundAmount": "100",
-"receiveAmount": "98",
-"status": "success",
-"merchantCancelNo": "20251232130123"
+  "powerCardId": "a9f4cb3bfa8649b88853eded3ad853dd",
+  "powerCardBizId": "202524392343",
+  "currency": "4040383164755526",
+  "refundAmount": "100",
+  "receiveAmount": "98",
+  "status": "success",
+  "merchantCancelNo": "20251232130123"
 }
 ```
