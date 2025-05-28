@@ -1,0 +1,28 @@
+{
+  "MerchantNotifyRequest": {
+    "type": "object",
+    "properties": {
+      "eventType": {
+        "type": "string",
+        "enum": [
+          "card_create",
+          "card_recharge",
+          "card_cancel",
+          "card_transaction",
+          "card_status"
+        ]
+      },
+      "data": {
+        "type": "string"
+      },
+      "key": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "eventType",
+      "data",
+      "key"
+    ]
+  }
+}

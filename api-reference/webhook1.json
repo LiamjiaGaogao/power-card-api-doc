@@ -1,0 +1,39 @@
+{
+  "webhooks": {
+    "/powercard/callbackExample": {
+      "post": {
+        "summary": "webhook参考",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MerchantNotifyRequest"
+              },
+              "examples": {}
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "const": "success",
+                  "nullable": true
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    }
+  }
+}
