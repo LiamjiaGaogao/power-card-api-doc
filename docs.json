@@ -84,7 +84,9 @@
                   "api-reference/card/setPhoneNumber",
                   "api-reference/card/setAddress",
                   "api-reference/card/activateCard",
-                  "api-reference/card/getCardStatus"
+                  "api-reference/card/getCardStatus",
+                  "api-reference/card/refund",
+                  "api-reference/card/setCardStatus"
                 ]
               },
               {
@@ -166,7 +168,9 @@
                   "api-reference/en/card/setPhoneNumber",
                   "api-reference/en/card/setAddress",
                   "api-reference/en/card/activateCard",
-                  "api-reference/en/card/getCardStatus"
+                  "api-reference/en/card/getCardStatus",
+                  "api-reference/en/card/refund",
+                  "api-reference/en/card/setCardStatus"
                 ]
               },
               {
