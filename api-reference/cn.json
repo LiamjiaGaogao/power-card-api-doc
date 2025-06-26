@@ -5820,12 +5820,9 @@
             "type": "string",
             "description": "退款状态",
             "enum": [
-              "preSuccess",
               "success",
               "failed",
-              "pending",
-              "retry",
-              "unknown"
+              "pending"
             ]
           },
           "balance": {

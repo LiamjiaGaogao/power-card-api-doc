@@ -5783,12 +5783,9 @@
             "type": "string",
             "description": "Refund status",
             "enum": [
-              "preSuccess",
               "success",
               "failed",
-              "pending",
-              "retry",
-              "unknown"
+              "pending"
             ]
           },
           "balance": {
