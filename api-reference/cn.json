@@ -7,6 +7,58 @@
   },
   "tags": [],
   "paths": {
+    "/biz/queryBizStatus": {
+      "post": {
+        "summary": "查询业务状态",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryBizStatusReqVO",
+                "description": ""
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommonResultQueryBizStatusResVO"
+                },
+                "example": {
+                  "success": false,
+                  "errorCode": "",
+                  "errorMessage": "",
+                  "errorMessageEn": "",
+                  "detailMessage": "",
+                  "requestId": "",
+                  "data": {
+                    "bizOrderNo": "",
+                    "status": "",
+                    "merchantOrderNo": "",
+                    "createTime": 0,
+                    "updateTime": 0
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "apikey-header-merchantId": []
+          }
+        ]
+      }
+    },
     "/powercard/callbackExample": {
       "post": {
         "summary": "webhook参考",
@@ -4072,6 +4124,103 @@
   },
   "components": {
     "schemas": {
+      "QueryBizStatusResVO": {
+        "type": "object",
+        "properties": {
+          "bizOrderNo": {
+            "type": "string",
+            "description": "powerCard业务订单号"
+          },
+          "status": {
+            "type": "string",
+            "description": "业务状态",
+            "enum": [
+              "success",
+              "failed",
+              "pending",
+              "retry"
+            ]
+          },
+          "merchantOrderNo": {
+            "type": "string",
+            "description": "商户订单号"
+          },
+          "createTime": {
+            "type": "integer",
+            "description": "订单创建时间",
+            "format": "int64"
+          },
+          "updateTime": {
+            "type": "integer",
+            "description": "订单更新时间",
+            "format": "int64"
+          }
+        },
+        "required": [
+          "bizOrderNo",
+          "status",
+          "merchantOrderNo",
+          "createTime",
+          "updateTime"
+        ]
+      },
+      "CommonResultQueryBizStatusResVO": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": "是否业务处理成功",
+            "default": false
+          },
+          "errorCode": {
+            "type": "string",
+            "description": "错误码"
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": "错误信息"
+          },
+          "errorMessageEn": {
+            "type": "string",
+            "description": "英文错误信息"
+          },
+          "detailMessage": {
+            "type": "string",
+            "description": "详细信息"
+          },
+          "requestId": {
+            "type": "string",
+            "description": "請求uuid"
+          },
+          "data": {
+            "$ref": "#/components/schemas/QueryBizStatusResVO",
+            "description": "结果数据"
+          }
+        }
+      },
+      "QueryBizStatusReqVO": {
+        "type": "object",
+        "properties": {
+          "bizType": {
+            "type": "string",
+            "description": "业务类型",
+            "enum": [
+              "create",
+              "recharge",
+              "refund",
+              "cancel"
+            ]
+          },
+          "bizOrderNo": {
+            "type": "string",
+            "description": "powerCard业务订单号"
+          }
+        },
+        "required": [
+          "bizType",
+          "bizOrderNo"
+        ]
+      },
       "MerchantNotifyRequest": {
         "type": "object",
         "properties": {

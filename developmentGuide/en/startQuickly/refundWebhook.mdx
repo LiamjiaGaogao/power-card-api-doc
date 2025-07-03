@@ -1,0 +1,43 @@
+---
+title: 'CARD_REFUND'
+---
+
+### Webhook Description
+
+| Webhook Name  | Description                                                                                                               | Request Type |
+|---------------|---------------------------------------------------------------------------------------------------------------------------|--------------|
+| card_refund   | Callback notification for successful refund. Merchants will only receive this notification after a refund is completed. | POST         |
+
+### Response Example
+
+```json
+{
+  "eventType": "card_refund",
+  "data": "xxxxxx",
+  "key": "xxxxxx"
+}
+```
+
+| Field Name        | Required | Type   | Description        | Example Value                    | Note |
+|-------------------|----------|--------|--------------------|----------------------------------|------|
+| powerCardId       | Yes      | string | PowerCard ID       | a9f4cb3bfa8649b88853eded3ad853dd |      |
+| powerCardBizId    | Yes      | string | PowerCard business ID | 202524392343                    |      |
+| currency          | Yes      | string | Currency           | 4040383164755526                 |      |
+| refundAmount      | Yes      | string | Refund amount      | 100                              |      |
+| receiveAmount     | Yes      | string | Actual refund amount | 98                               |      |
+| status            | Yes      | string | Transaction status | success                          |      |
+| merchantRefundNo  | Yes      | string | Merchant refund number | 20251232130123                   |      |
+
+### Data Example
+
+```json
+{
+  "powerCardId": "a9f4cb3bfa8649b88853eded3ad853dd",
+  "powerCardBizId": "202524392343",
+  "currency": "USD",
+  "refundAmount": "100",
+  "receiveAmount": "98",
+  "status": "success",
+  "merchantRefundNo": "20251232130123"
+}
+```

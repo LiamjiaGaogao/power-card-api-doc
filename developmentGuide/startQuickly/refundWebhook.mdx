@@ -1,0 +1,43 @@
+---
+title: 'CARD_REFUND'
+---
+
+### Webhook 描述
+
+| Webhook 名称  | 功能描述                             | 请求类型 |
+|-------------|----------------------------------|------|
+| card_refund | 退款成功的回调通知。只有在退款流程完成后，商户才会收到该回调通知 | POST |
+
+### Response 示例
+
+```json
+{
+  "eventType": "card_refund",
+  "data": "xxxxxx",
+  "key": "xxxxxx"
+}
+```
+
+| 属性名            | 必要参数 | 类型     | 用途            | 范例值                              | 备注 |
+|----------------|------|--------|---------------|----------------------------------|----|
+| powerCardId    | 是    | string | powerCard卡片id | a9f4cb3bfa8649b88853eded3ad853dd |    |
+| powerCardBizId | 是    | string | powerCard业务id | 202524392343                                 |    |
+| currency         | 是    | string | 币种            | 4040383164755526                 |    |
+| refundAmount           | 是    | string | 退款金额          | 100                              |    |
+| receiveAmount     | 是    | string | 实际退款金额        | 98                               |    |
+| status         | 是    | string | 业务状态          | success                          |    |
+| merchantRefundNo         | 是    | string | 商户退款单号        | 20251232130123                           |    |
+
+### Data 示例
+
+```json
+{
+  "powerCardId": "a9f4cb3bfa8649b88853eded3ad853dd",
+  "powerCardBizId": "202524392343",
+  "currency": "USD",
+  "refundAmount": "100",
+  "receiveAmount": "98",
+  "status": "success",
+  "merchantRefundNo": "20251232130123"
+}
+```

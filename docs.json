@@ -38,7 +38,8 @@
                   "developmentGuide/startQuickly/RechargeWebhook",
                   "developmentGuide/startQuickly/cancelWebhook",
                   "developmentGuide/startQuickly/TransactionWebhook",
-                  "developmentGuide/startQuickly/statusWebhook"
+                  "developmentGuide/startQuickly/statusWebhook",
+                  "developmentGuide/startQuickly/refundWebhook"
                 ]
               }
             ]
@@ -95,6 +96,11 @@
                   "api-reference/transaction/queryTransactions",
                   "api-reference/transaction/queryOrder"
                 ]
+              },{
+                "group": "业务",
+                "pages": [
+                  "api-reference/biz/queryBizStatus"
+                ]
               }
             ]
           }
@@ -122,7 +128,8 @@
                   "developmentGuide/en/startQuickly/RechargeWebhook",
                   "developmentGuide/en/startQuickly/cancelWebhook",
                   "developmentGuide/en/startQuickly/TransactionWebhook",
-                  "developmentGuide/en/startQuickly/statusWebhook"
+                  "developmentGuide/en/startQuickly/statusWebhook",
+                  "developmentGuide/en/startQuickly/refundWebhook"
                 ]
               }
             ]
@@ -178,6 +185,12 @@
                 "pages": [
                   "api-reference/en/transaction/queryTransactions",
                   "api-reference/en/transaction/queryOrder"
+                ]
+              },
+              {
+                "group": "Business",
+                "pages": [
+                  "api-reference/en/biz/queryBizStatus"
                 ]
               }
             ]
